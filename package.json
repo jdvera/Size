@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "Size",
   "version": "1.0.0",
-  "description": "Mern Demo",
+  "description": "Using API’s, User Entered information, and a self created database to determine clothing sizes based on real measurements across various stores.",
   "main": "server.js",
   "scripts": {
     "server": "node server.js",

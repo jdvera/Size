@@ -7,12 +7,15 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+// Add routes (api & view)
+const routes = require("./routes");
+app.use(routes);
 
 // **Uncomment once we begin passport work**
 // Sets up Passport =====================================
-// var passport   = require('passport');
-// var session    = require('express-session');
-// var flash = require('connect-flash');
+var passport   = require('passport');
+var session    = require('express-session');
+var flash = require('connect-flash');
 
 
 // Sets up the Express app to handle data parsing -------/
@@ -23,10 +26,10 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // **Uncomment once we begin passport work**
 // For Passport -----------------------------------------/
-// app.use(flash());
-// app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
-// app.use(passport.initialize());
-// app.use(passport.session()); // persistent login sessions
+app.use(flash());
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
 
 
 // Serve up static assets (usually on heroku)

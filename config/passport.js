@@ -7,7 +7,7 @@ const db = require("../models");
 const bCrypt = require('bcrypt-nodejs');
 
 // prepare for export
-module.exports = function(passport, user) {
+module.exports = function(passport) {
 const User = db.Users;
 	// load all the things we need
 	const LocalStrategy = require('passport-local').Strategy;

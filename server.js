@@ -7,10 +7,6 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-// Add routes (api & view)
-const routes = require("./routes");
-app.use(routes);
-
 // **Uncomment once we begin passport work**
 // Sets up Passport =====================================
 var passport   = require('passport');
@@ -36,6 +32,12 @@ app.use(passport.session()); // persistent login sessions
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+// Server Routes
+// =============================================================
+require("./routes/user-routes.js")(app, passport);
+// load passport strategies
+require('./config/passport.js')(passport);
 
 // Send every request to the React app
 // Define any API routes before this runs

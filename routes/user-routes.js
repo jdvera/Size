@@ -49,11 +49,6 @@ module.exports = function(app, passport) {
     res.redirect('/');
   });
 
-  // add route loads add.html
-  app.get("/add", isLoggedIn, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/add.html"));
-  });
-
   //determine is user is logged in
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {

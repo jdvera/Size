@@ -5,7 +5,6 @@ import "./App.css";
 import Search from "./pages/Search";
 import NoMatch from "./pages/NoMatch";
 
-import logo from './logo.svg';
 import './App.css';
 import Home from "./pages/Home";
 

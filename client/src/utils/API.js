@@ -43,4 +43,16 @@
 	// }
 // END PASSPORT.JS AUTHENTICATION REQUESTS ╱╲╱╲╱╲╱╲╱╲╱╲╱╲╱╲╱╲
 
+
+// ================================
+// Home search - when users first search for sizes from the homepage,
+// they must enter: 
+	// clothing type (req'd) [shoes]
+	// brand (optional)
+	// gender radio button (req'd)
+	// measurement (req'd)
+
+// getResults: function() {
+// return axios.get("/api/:clothing/:gender/:measurement/:brand");
+
 // }

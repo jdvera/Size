@@ -36,13 +36,11 @@
 
 .createAccount {
 	color: white;
-	text-decoration: underline;
-	position: fixed;
 	margin: auto;
-	width: 30%;
+	width: 50%;
 }
 
-.createAccount p, p:hover {
+.createAccount a {
 	color: white;
-	cursor: pointer;
+	text-decoration: underline;
 }

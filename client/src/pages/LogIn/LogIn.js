@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import "./LogIn.css";
 
-
 class LogIn extends Component {
 	render() {
 	    return (
-	    	<div className="logInBody">   
+			<div className="logInBody">   
 			    <div className="logInContainer">
-			    	<h1>Size</h1>      
+			    	<h1>Size</h1>
+			    	   
 			        <form action="/loginform" method="post">
 			        	<input name="email" type="email" placeholder="Email"></input>
 			        	<p></p>
@@ -16,8 +16,8 @@ class LogIn extends Component {
 			        	<button type="submit" className="logInButton">Log In</button>
 			        </form>
 			        <div className="createAccount">
-			        	<p>Don't have an accoutn yet?</p>
-			        	<p>Sign Up!</p>
+			        	<p>Don't have an account yet?</p>
+			        	<a href="/signup"><p>Sign Up!</p></a>
 			        </div>
 			    </div>
 	    	</div>
@@ -38,18 +38,3 @@ export default LogIn;
 			// <input type="email" name="email" />
 		// At least, use name="password", e.g.:
 			// <input type="password" name="password" />
-
-			// <div className="signUpContainer">
-			//     	<h1>Size</h1>      
-			//         <form action="/signUpform" method="post">
-			//         	<input name="email" type="email" placeholder="Email"></input>
-			//         	<p></p>
-			//         	<input name="password" type="password" placeholder="Password"></input>
-			//         	<p></p>
-			//         	<button type="submit" className="signUpButton">Log In</button>
-			//         </form>
-			//         <div className="createAccount">
-			//         	<p>Don't have an accoutn yet?</p>
-			//         	<p>Sign Up!</p>
-			//         </div>
-			//     </div>

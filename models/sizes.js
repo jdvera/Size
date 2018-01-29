@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    type: {
+    gender: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -21,14 +21,14 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    minMeasure: {
+    inchMin: {
       type: DataTypes.FLOAT,
       allowNull: false,
       validate: {
         len: [1]
       }
     },
-    maxMeasure: {
+    InchMax: {
       type: DataTypes.FLOAT,
       allowNull: false,
       validate: {

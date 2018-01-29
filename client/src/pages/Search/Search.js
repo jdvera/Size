@@ -12,7 +12,7 @@ class Search extends Component {
 
 	render() {
 	    return (
-	      <div className="searchBody">   
+	    	<div className="searchBody">   
 			    <div className="formContainer">
 			    	<h1>Size</h1>      
 			        <form>
@@ -31,7 +31,7 @@ class Search extends Component {
 			    </div>
 
 			    <Results />
-	      </div>
+	    	</div>
 		)
 	}
 }

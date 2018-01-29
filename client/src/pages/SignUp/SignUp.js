@@ -1,33 +1,30 @@
 import React, { Component } from "react";
-import "./LogIn.css";
+import "./SignUp.css";
 
-class LogIn extends Component {
+class SignUp extends Component {
 	render() {
 	    return (
-			<div className="logInBody">   
-			    <div className="logInContainer">
-			    	<h1>Size</h1>
-			    	   
-			        <form action="/loginform" method="post">
+			<div className="signUpBody">
+		    	<div className="signUpContainer">
+			    	<h1>Size</h1>      
+			        <form action="signupform" method="post">
 			        	<input name="email" type="email" placeholder="Email"></input>
 			        	<p></p>
 			        	<input name="password" type="password" placeholder="Password"></input>
 			        	<p></p>
-			        	<button type="submit" className="logInButton">Log In</button>
+			        	<input type="password" placeholder="Verify password"></input>
+			        	<p></p>
+			        	<button type="submit" className="signUpButton">Sign Up</button>
 			        </form>
-			        <div className="createAccount">
-			        	<p>Don't have an account yet?</p>
-			        	<a href="/signup"><p>Sign Up!</p></a>
-			        </div>
+			        <a href="/search">Start new search</a>
 			    </div>
-	    	</div>
+		    </div>
 		)
 	}
 }
 
-export default LogIn;
+export default SignUp;
 
-// LOGIN & SIGNUP
 // These requests should come straight from the form in the react page/component, example below:
 	// <form action="/loginform" method="post">
 	// <form action="/signupform" method="post">

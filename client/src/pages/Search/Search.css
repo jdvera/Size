@@ -43,9 +43,9 @@
 	padding: 0 11%;
 }
 
-.suggestBrand p, p:hover {
+.suggestBrand a{
 	color: white;
-	cursor: pointer;
+	text-decoration: white;
 }
 
 .itemsContainer {

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import Results from "../../components/Results";
 import "./Search.css";
 
 class Search extends Component {
@@ -11,7 +12,7 @@ class Search extends Component {
 
 	render() {
 	    return (
-	      <div className="searchBody">   
+	    	<div className="searchBody">   
 			    <div className="formContainer">
 			    	<h1>Size</h1>      
 			        <form>
@@ -29,38 +30,8 @@ class Search extends Component {
 			        </div>
 			    </div>
 
-			    <div className="itemsContainer">
-			    	<ul>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    		<li>Adidas</li>
-			    	</ul>
-			    </div>
-	      </div>
+			    <Results />
+	    	</div>
 		)
 	}
 }

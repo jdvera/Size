@@ -1,5 +1,13 @@
+body {
+	margin:0px;
+}
+
 .appBody {
-	background-color: white;
+	background-size:cover;
+	background-image: url(images/hanger3.png);
+    background-repeat: no-repeat;
+    background-color:orange;
+    color:white;
 	height: 800px;
 	overflow-x: hidden;
 	overflow-y: hidden;

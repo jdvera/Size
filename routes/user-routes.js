@@ -18,12 +18,12 @@ module.exports = function(app, passport) {
   });
 
   // send log-in errors to client side
-  app.get('/signinform', function(req, res) {
+  app.get('/loginform', function(req, res) {
       res.send({message: req.flash('error')});
   });
 
   // process the login form
-  app.post('/signinform', passport.authenticate('local-login', {
+  app.post('/loginform', passport.authenticate('local-login', {
       successRedirect : '/add', // redirect to the secure profile section
       failureRedirect : '/signin', // redirect back to the signup page if there is an error
       failureFlash: true
@@ -49,11 +49,6 @@ module.exports = function(app, passport) {
     res.redirect('/');
   });
 
-  // add route loads add.html
-  app.get("/add", isLoggedIn, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/add.html"));
-  });
-
   //determine is user is logged in
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
@@ -61,11 +56,5 @@ module.exports = function(app, passport) {
     }
     res.redirect('/signup');
   }
-
-  // Handle 404 - Keep this as a last route
-  app.use(function(req, res, next) {
-    res.status(404);
-    res.send('404: File Not Found');
-  });
 
 };

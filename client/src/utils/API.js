@@ -51,8 +51,12 @@
 	// brand (optional)
 	// gender radio button (req'd)
 	// measurement (req'd)
-
+// with brand
 // getResults: function() {
 // return axios.get("/api/:clothing/:gender/:measurement/:brand");
+
+// without brand
+// getResults: function() {
+// return axios.get("/api/:clothing/:gender/:measurement/");
 
 // }

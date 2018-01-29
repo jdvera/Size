@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn"
 import Search from "./pages/Search";
+import SignUp from "./pages/SignUp"
 import NoMatch from "./pages/NoMatch";
 
 
@@ -17,6 +18,7 @@ class App extends Component {
 		    		<Route exact path="/" component={Home} />
 		    		<Route exact path="/login" component={LogIn} />
 		        	<Route exact path="/search" component={Search} />
+		        	<Route exact path="/signup" component={SignUp} />
 		        	<Route component={NoMatch} />
 		        </Switch>
 		    

@@ -25,8 +25,10 @@ class Search extends Component {
 			        	<button className="searchButton">Search</button>
 			        </form>
 			        <div className="suggestBrand">
-			        	<p>Can't find a brand?</p>
-			        	<p>Let us know!</p>
+			        	<a href="/login">
+				        	<p>Can't find a brand?</p>
+				        	<p>Let us know!</p>
+			        	</a>
 			        </div>
 			    </div>
 

@@ -1,10 +1,10 @@
-.logInBody h1 {
+.signUpBody h1 {
 	font-size: 60px;
 	color: white;
 	overflow-x: hidden;
 }
 
-.logInBody input {
+.signUpBody input {
 	font-family: 'Dosis', sans-serif;
 	font-size: 20px;
 	border-radius: 10px;
@@ -14,7 +14,7 @@
 	text-align: center;
 }
 
-.logInContainer {
+.signUpContainer {
 	font-family: 'Dosis', sans-serif;
  	width: 30%;
  	height: 750px;
@@ -24,7 +24,7 @@
 	margin: auto;
 }
 
-.logInButton {
+.signUpButton {
 	font-family: 'Dosis', sans-serif;
 	font-size: 20px;
 	color: orange;
@@ -34,13 +34,11 @@
 	cursor: pointer;
 }
 
-.createAccount {
+.signUpContainer a {
 	color: white;
+	text-decoration: white underline;
+	position: relative;
+	top: 400px;
 	margin: auto;
-	width: 50%;
-}
 
-.createAccount a {
-	color: white;
-	text-decoration: underline;
 }

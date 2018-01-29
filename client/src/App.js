@@ -1,11 +1,8 @@
-import React, { Component } from 'react';
- 
+import React, { Component } from 'react'; 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Search from "./pages/Search";
 import NoMatch from "./pages/NoMatch";
-
-import './App.css';
 import Home from "./pages/Home";
 
 
@@ -15,7 +12,8 @@ class App extends Component {
     	<Router>
 		    <div className="appBody">
 		    	<Switch>
-		        	<Route exact path="/" component={Search} />
+		    		<Route exact path="/" component={Home} />
+		        	<Route exact path="/search" component={Search} />
 		        	<Route component={NoMatch} />
 		        </Switch>
 		    </div>

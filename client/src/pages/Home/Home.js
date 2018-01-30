@@ -1,4 +1,5 @@
 import React, { Component} from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 
 
@@ -11,11 +12,11 @@ render() {
         <div className="appBody">
         <div className="navbar">
         <ul className="ul">
-                <li className="left"><a href="index.html"><h3 className="h1">Size</h3></a></li>
+                <li className="left"><Link to={"/"}><h3 className="h1">Size</h3></Link></li>
 
-                <li className="right"><a href>Login</a></li>
+                <li className="right"><Link to={"/login"}>Login</Link></li>
 
-                <li className="right"><a href>Sign Up</a></li>
+                <li className="right"><Link to={"/signup"}>Sign Up</Link></li>
               </ul>
               
         </div>

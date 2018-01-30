@@ -45,7 +45,9 @@
 
 
 
-
+a {
+    color: orange;
+}
 
 .search {
     position: absolute;

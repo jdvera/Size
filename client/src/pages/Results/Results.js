@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import Results from "../../components/Results";
-import "./Search.css";
+import Sizes from "../../components/Sizes";
+import "./Results.css";
 
-class Search extends Component {
+class Results extends Component {
 
 	componentDidMount() {
 		//function to get results that match the user's search
@@ -31,11 +31,13 @@ class Search extends Component {
 			        	</a>
 			        </div>
 			    </div>
-
-			    <Results />
+			    
+			    <div className="itemsContainer">
+			    	<Sizes />
+			    </div>
 	    	</div>
 		)
 	}
 }
 
-export default Search;
+export default Results;

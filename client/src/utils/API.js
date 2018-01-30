@@ -11,12 +11,12 @@ export default {
 	Login: function(userData) {
 		console.log("utils/API says.....");
 		console.log(userData);
-		return axios.post("/loginform", userData)
+		return axios.post("/loginform", userData);
 	}, 
 	Signup: function(userData) {
 		console.log("utils/API says.....");
 		console.log(userData);
-		return axios.post("/signupform", userData)
+		return axios.post("/signupform", userData);
 	},
 
 
@@ -30,8 +30,8 @@ export default {
 
 	getLoginError: function() {
 		console.log(`getting login error`);
-		return axios.get("/loginform")
-	}
+		return axios.get("/loginform");
+	},
 
 // here is another get request function to confirm if the user is logged in or not
 // you can use this if you need to show / hide a login or logout button anywhere on the front-end
@@ -53,6 +53,18 @@ export default {
 // with brand
 // getResults: function() {
 // return axios.get("/api/:clothing/:gender/:measurement/:brand");
+
+	getSizes: function(userData) {
+		console.log("getting size data for:");
+		console.log(userData);
+		return axios.get("/api/sizes/" + userData.brand, userData);
+	},
+	getSizesWithoutBrand: function(userData) {
+		console.log("getting size data for:");
+		console.log(userData);
+		return axios.get("/api/sizes", userData);
+	}
+
 
 // without brand
 // getResults: function() {

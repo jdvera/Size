@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    InchMax: {
+    inchMax: {
       type: DataTypes.FLOAT,
       allowNull: false,
       validate: {
@@ -36,4 +36,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
+
+  return Sizes;
 };

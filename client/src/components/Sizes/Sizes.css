@@ -23,3 +23,13 @@
 	padding: 40px;
 	margin: 30px;
 }
+
+.singleItem {
+	max-width: 100px;
+	height: auto;
+}
+
+.singleItem img {
+	max-width: 100%;
+
+}

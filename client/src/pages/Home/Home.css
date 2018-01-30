@@ -73,3 +73,11 @@
     margin: 4px 2px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 640px) {
+
+    .homebody {
+        background-image: url(../../images/hanger3mobile.png);
+    }
+    
+}

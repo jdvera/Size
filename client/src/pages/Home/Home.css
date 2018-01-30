@@ -1,73 +1,65 @@
 .homebody {    
-    background-image: url(../../images/hanger3.png);
     background-repeat: no-repeat;
-    background-color:orange;
-    color:white;
+    font-family: 'Dosis', sans-serif
 }
 
+
+
 .ul {
+    color:orange;
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color:rgba(255,255,255,0.8);
+    background-color:white;
 
 }
 
 .left {
     float: left;
     display: block;
-    color: orange;
+    text-decoration: none;
     padding-left:14px;
     text-align: center;
-    text-decoration: none;
     padding-bottom:0px;
 }
 
 
 .right {
+    color: orange;
     float:right;
     display: block;
-    color: orange;
-    text-align: center;
     padding: 10px;
     text-decoration: none;
-    font-family: 'Rammetto One', cursive;
+    font-family: 'Dosis', sans-serif
 }
 
 
 .h1 {
+    color:white;
     text-align: center;
-    text-transform: uppercase;
-    color: orange;
-    font-family: 'Rammetto One', cursive;
+    text-decoration: none;
+    font-family: 'Dosis', sans-serif;
 }
 
 
-
-a {
-    color: orange;
-}
-
-.search {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 100%;
+.h3 {
+    color:orange;
     text-align: center;
-    font-size: 18px;
-    color:black;
-    background-color:rgba(255,255,255,0.8);
-    padding:20px;  
-
+    text-decoration: none;
+    font-family: 'Dosis', sans-serif;
 }
+
 
 .selection {
-    color: white;
-   background-color: orange;
+    color: orange;
+   background-color: white;
    border-radius: 20px;
+   border-width:0px;
    padding: 16px 32px;
     text-decoration: none;
+    font-family: 'Dosis', sans-serif;
+    font-size: 25px;
     margin: 4px 2px;
 }
 

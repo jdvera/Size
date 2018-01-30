@@ -1,20 +1,27 @@
 import React, { Component } from "react";
 import "./Search.css";
+import { Link } from "react-router-dom";
 
 
 const Search = props =>
 	<div className="search">
+    
         <form className="form">
-            <h1 className="h1">Size</h1>
-            <label  htmlFor="clothingtype"> Clothing type</label>
-            <select className="selection" id="clothingtype" name="clothingtype">
+
+            <Link to={"/"}style={{ textDecoration: 'none' }}>
+                <h1 className="h1">Size</h1>
+            </Link>
+
+
+            <label  for="clothingtype"></label>
+            <select className="selection"id="clothingtype" name="clothingtype">
+                <option> Clothing Type </option>
                 <option value="shoes"> Shoes</option>
             </select>
             <br/>
-
-            <label  htmlFor="brand"> Brand (optional)</label>
-            <select className="selection" id="brand" name="brand" onChange={props.handleInputChange}>
-                <option> (none)</option>
+           
+            <select className="selection" id="brand" name="brand">
+                <option>  Brand (optional)</option>
                 <option value="bcbg"> BCBG </option>
                 <option value="adidas"> Adidas</option>
                 <option value="asics"> Asics</option>

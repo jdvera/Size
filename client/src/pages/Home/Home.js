@@ -52,15 +52,15 @@ class Home extends Component {
             <div className="appBody">
                 <div className="navbar">
                     <ul className="ul">
-                        <li className="left"><Link to={"/"}><h3 className="h1">Size</h3></Link></li>
-                        <li className="right"><Link to={"/login"}>Login</Link></li>
-                        <li className="right"><Link to={"/signup"}>Sign Up</Link></li>
+                        <li className="right"><Link to={"/login"} style={{ textDecoration: 'none', color: 'orange'}}>Login</Link></li>
+                        <li className="right"><Link to={"/signup"} style={{ textDecoration: 'none', color: 'orange'}}>Sign Up</Link></li>
                     </ul>
                 </div>
-               
+                
                 {!this.hasSearched ? (<div className="beforeSearch"><Search handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/></div>)
                 : (<div><div className="afterSearch"><Search handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/></div><Sizes /></div>)}
             </div>
+            
         )
     }
 }

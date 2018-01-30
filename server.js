@@ -36,11 +36,14 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+// load passport strategies
+require('./config/passport.js')(passport);
+
 // Server Routes
 // =============================================================
 require("./routes/user-routes.js")(app, passport);
-// load passport strategies
-require('./config/passport.js')(passport);
+
+
 
 // Send every request to the React app
 // Define any API routes before this runs

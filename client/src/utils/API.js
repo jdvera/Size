@@ -1,6 +1,6 @@
-// import axios from "axios";
+import axios from "axios";
 
-// export default {
+export default {
 // 	//write requests as functions
 // 	// getResults: function() {
 // 	// return axios.get("/api/:clothing/:size");
@@ -9,6 +9,27 @@
 
 // PASSPORT.JS AUTHENTICATION REQUESTS ╲╱╲╱╲╱╲╱╲╱╲╱╲╱╲╱╲╱
 // NOTE TO FE-DEV: the routes below (ie: "/signupform" must stay the same, but feel free to change the function names!
+
+
+
+
+
+	Login: function(userData) {
+		console.log("utils/API says.....");
+		console.log(userData);
+		return axios.post("/loginform", userData)
+	}, 
+	Signup: function(userData) {
+		console.log("utils/API says.....");
+		console.log(userData);
+		return axios.post("/signupform", userData)
+	},
+
+
+
+
+
+
 
 // LOGIN & SIGNUP
 // These requests should come straight from the form in the react page/component, example below:
@@ -30,9 +51,10 @@
 	// 	return axios.get("/signupform");
 	// }
 
-	// getLoginError: function() {
-	// 	return axios.get("/loginform")
-	// }
+	getLoginError: function() {
+		console.log(`getting login error`);
+		return axios.get("/loginform")
+	}
 
 // here is another get request function to confirm if the user is logged in or not
 // you can use this if you need to show / hide a login or logout button anywhere on the front-end
@@ -43,4 +65,20 @@
 	// }
 // END PASSPORT.JS AUTHENTICATION REQUESTS ╱╲╱╲╱╲╱╲╱╲╱╲╱╲╱╲╱╲
 
-// }
+
+// ================================
+// Home search - when users first search for sizes from the homepage,
+// they must enter: 
+	// clothing type (req'd) [shoes]
+	// brand (optional)
+	// gender radio button (req'd)
+	// measurement (req'd)
+// with brand
+// getResults: function() {
+// return axios.get("/api/:clothing/:gender/:measurement/:brand");
+
+// without brand
+// getResults: function() {
+// return axios.get("/api/:clothing/:gender/:measurement/");
+
+}

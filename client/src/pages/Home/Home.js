@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 import API from "../../utils/API";
 import Search from "../../components/Search";
+import Sizes from "../../components/Sizes";
 
 
 class Home extends Component {
+    hasSearched = false;
 
     state = {
         gender: "",
@@ -18,15 +20,16 @@ class Home extends Component {
         this.setState({
             [name]: value
         });
-    }
+    };
 
-    handleLogin = event => {
+    handleSearch = event => {
         event.preventDefault();
+        this.hasSearched = true;
         
         if (this.state.brand) {
             API.getSizes(this.state)
                .then(res => {
-                //figure out how to pass res to new page
+                //figure out how to display res on this page
                })
                .catch(err => console.log(err));
         }
@@ -38,11 +41,11 @@ class Home extends Component {
                     }
                )
                .then(res => {
-                //figure out how to pass res to new page
+                //figure out how to display res on this page
                })
                .catch(err => console.log(err));
         }
-    }
+    };
 
     render() {
         return (
@@ -55,7 +58,8 @@ class Home extends Component {
                     </ul>
                 </div>
                
-                <Search />
+                {!this.hasSearched ? (<div className="beforeSearch"><Search handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/></div>)
+                : (<div><div className="afterSearch"><Search handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/></div><Sizes /></div>)}
             </div>
         )
     }

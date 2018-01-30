@@ -6,14 +6,14 @@ const Search = props =>
 	<div className="search">
         <form className="form">
             <h1 className="h1">Size</h1>
-            <label  for="clothingtype"> Clothing type</label>
-            <select className="selection"id="clothingtype" name="clothingtype">
+            <label  htmlFor="clothingtype"> Clothing type</label>
+            <select className="selection" id="clothingtype" name="clothingtype">
                 <option value="shoes"> Shoes</option>
             </select>
             <br/>
 
-            <label  for="brand"> Brand (optional)</label>
-            <select className="selection" id="brand" name="brand">
+            <label  htmlFor="brand"> Brand (optional)</label>
+            <select className="selection" id="brand" name="brand" onChange={props.handleInputChange}>
                 <option> (none)</option>
                 <option value="bcbg"> BCBG </option>
                 <option value="adidas"> Adidas</option>
@@ -31,15 +31,15 @@ const Search = props =>
             </select>
             <br/>
 
-            <input type="radio" name="gender" value="male"/> Male
-            <input type="radio" name="gender" value="female"/> Female
+            <input type="radio" name="gender" value="male" onChange={props.handleInputChange}/> Male
+            <input type="radio" name="gender" value="female" onChange={props.handleInputChange}/> Female
             <br/>
    
-            <label  for="footlength"> Foot Length (in Inches)</label>
-            <input type="text" className="selection" id="footlength" name="foodlength"></input>
+            <label  htmlFor="footlength"> Foot Length (in Inches)</label>
+            <input type="text" className="selection" id="footlength" name="measurement" onChange={props.handleInputChange}></input>
             <br/>
 
-            <button className="input" type="submit" onClick={this.handleSearch}>
+            <button className="input" type="submit" onClick={props.handleSearch}>
                 Submit
             </button>
         </form>

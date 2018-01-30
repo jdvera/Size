@@ -40,8 +40,8 @@ class Home extends Component {
                         <h3 className="h1">Size</h3>
                          </Link>
                          </li>
-                        <li className="right"><Link to={"/login"} style={{ textDecoration: 'none', color: 'orange'}}>Login</Link></li>
-                        <li className="right"><Link to={"/signup"} style={{ textDecoration: 'none', color: 'orange'}}>Sign Up</Link></li>
+                        <li className="right"><Link to={"/login"}>Login</Link></li>
+                        <li className="right"><Link to={"/signup"}>Sign Up</Link></li>
                     </ul>
                 </div>
                

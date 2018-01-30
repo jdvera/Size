@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 import "./Search.css";
+import { Link } from "react-router-dom";
 
 
 const Search = props =>
 	<div className="search">
+    
         <form className="form">
-            <h1 className="h1">Size</h1>
+
+            <Link to={"/"}style={{ textDecoration: 'none' }}>
+                <h1 className="h1">Size</h1>
+                </Link>
+
+
             <label  for="clothingtype"> Clothing type</label>
             <select className="selection"id="clothingtype" name="clothingtype">
                 <option value="shoes"> Shoes</option>
@@ -36,7 +43,7 @@ const Search = props =>
             <br/>
    
             <label  for="footlength"> Foot Length (in Inches)</label>
-            <input type="text" className="selection" id="footlength" name="foodlength"></input>
+            <input type="text" className="selection" id="footlength" name="footlength"/>
             <br/>
 
             <button className="input" type="submit" onClick={this.handleSearch}>

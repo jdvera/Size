@@ -93,7 +93,8 @@ const User = db.Users;
      },
      function(req, email, password, done) { // callback with email and password from our form
      	const User = db.Users;
-
+     	console.log("I am about to check if the user can login!");
+     	console.log(email);
      	//encrypt password
      	const isValidPassword = function(userpass, password) {
 			return bCrypt.compareSync(password, userpass);
@@ -103,23 +104,31 @@ const User = db.Users;
          User.findOne({ where: {
         	email: email
       	 	} }).then(function(user) {
+         	console.log("user is....");
+         	console.log(user.email);
 
       	 		if (!user) {
+      	 			console.log('There is no account associated with that email.');
 					return done(null, false, {
 						message: 'There is no account associated with that email.'
 					});
 				}
+
+				console.log(user.password);
+				console.log(password);
 				//if password isn't right, alert user
 				if (!isValidPassword(user.password, password)) {
+					console.log('Incorrect password.');
 					return done(null, false, {
 						message: 'Incorrect password.'
 					});
 				}
-
+				
 				const userinfo = user.get();
 				return done(null, userinfo);
 				//if an error is thrown, alert user
 				}).catch(function(err) {
+					console.log('Something went wrong with your login.');
 					return done(null, false, {
 						message: 'Something went wrong with your login.'
 					});

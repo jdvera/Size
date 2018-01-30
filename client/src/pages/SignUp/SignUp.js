@@ -1,20 +1,78 @@
 import React, { Component } from "react";
 import "./SignUp.css";
+import API from "../../utils/API";
 
 class SignUp extends Component {
+
+	state = {
+	  email: "",
+	  password: "",
+	  verifyPassword: ""
+	};
+
+	handleInputChange = event => {
+	  const { name, value } = event.target;
+	  this.setState({
+	    [name]: value
+	  });
+	};
+
+	handleSignUp = event => {
+	  event.preventDefault();
+	  if (this.state.email && this.state.password && this.state.verifyPassword) {
+	  	console.log("SignUp.js says: "+ this.state.email + " " + this.state.password);
+	    API.Signup(
+	    		{
+    		  		email: this.state.email,
+    		  		password: this.state.password
+	    		}
+	    	)
+	      .then(res => {
+	      	console.log("res is: "); 
+	      	console.log( res.status);
+	      	console.log( res); 
+	      	if (res.status === 200) { this.props.history.push('/') }
+	      })
+	      .catch(
+	      	err => API.getSignupError()
+	      	.then(res => {console.log("res is: "); console.log( res); })
+	      	.catch(err => console.log(err))
+	      );
+	  }
+	};
+
 	render() {
 	    return (
 			<div className="signUpBody">
 		    	<div className="signUpContainer">
 			    	<h1>Size</h1>      
 			        <form action="signupform" method="post">
-			        	<input name="email" type="email" placeholder="Email"></input>
+			        	<input 
+			        		value={this.state.email}
+			        		onChange={this.handleInputChange}
+			        		name="email" 
+			        		type="email" 
+			        		placeholder="Email" />
 			        	<p></p>
-			        	<input name="password" type="password" placeholder="Password"></input>
+			        	<input 
+			        		value={this.state.password}
+			        		onChange={this.handleInputChange}
+			        		name="password" 
+			        		type="password" 
+			        		placeholder="Password" />
 			        	<p></p>
-			        	<input type="password" placeholder="Verify password"></input>
+			        	<input 
+			        		value={this.state.verifyPassword}
+			        		onChange={this.handleInputChange}
+			        		name="verifyPassword"
+			        		type="password" 
+			        		placeholder="Verify password" />
 			        	<p></p>
-			        	<button type="submit" className="signUpButton">Sign Up</button>
+			        	<button 
+				        	disabled={!(this.state.password && this.state.email && this.state.verifyPassword)}
+				        	onClick={this.handleSignUp}
+				        	type="submit" 
+				        	className="signUpButton">Sign Up</button>
 			        </form>
 			        <a href="/search">Start new search</a>
 			    </div>
@@ -25,13 +83,3 @@ class SignUp extends Component {
 
 export default SignUp;
 
-// These requests should come straight from the form in the react page/component, example below:
-	// <form action="/loginform" method="post">
-	// <form action="/signupform" method="post">
-// I think this means we don't need axios calls for those two actions.
-// We just need to make sure that the form data matches up w/ the schema
-	// LOGIN & SIGNUP
-		// At least, use name="email", e.g.:
-			// <input type="email" name="email" />
-		// At least, use name="password", e.g.:
-			// <input type="password" name="password" />

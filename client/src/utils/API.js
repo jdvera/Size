@@ -1,38 +1,37 @@
-// import axios from "axios";
+import axios from "axios";
 
-// export default {
+export default {
 // 	//write requests as functions
 // 	// getResults: function() {
 // 	// return axios.get("/api/:clothing/:size");
 // 	// },
 
 
-// PASSPORT.JS AUTHENTICATION REQUESTS ╲╱╲╱╲╱╲╱╲╱╲╱╲╱╲╱╲╱
-// NOTE TO FE-DEV: the routes below (ie: "/signupform" must stay the same, but feel free to change the function names!
-
-// LOGIN & SIGNUP
-// These requests should come straight from the form in the react page/component, example below:
-	// <form action="/loginform" method="post">
-	// <form action="/signupform" method="post">
-// I think this means we don't need axios calls for those two actions.
-// We just need to make sure that the form data matches up w/ the schema
-	// LOGIN & SIGNUP
-		// At least, use name="email", e.g.:
-			// <input type="email" name="email" />
-		// At least, use name="password", e.g.:
-			// <input type="password" name="password" />
+// PASSPORT.JS AUTHENTICATION ========================= 
+	Login: function(userData) {
+		console.log("utils/API says.....");
+		console.log(userData);
+		return axios.post("/loginform", userData)
+	}, 
+	Signup: function(userData) {
+		console.log("utils/API says.....");
+		console.log(userData);
+		return axios.post("/signupform", userData)
+	},
 
 
 // we need functions to return error message data 
 // if/when passport returns an error on user signup or login
 // IE: "email is already registered", "wrong password", etc.
-	// getSignupError: function() {
-	// 	return axios.get("/signupform");
-	// }
+	getSignupError: function() {
+		console.log(`getting signup error`);
+		return axios.get("/signupform");
+	},
 
-	// getLoginError: function() {
-	// 	return axios.get("/loginform")
-	// }
+	getLoginError: function() {
+		console.log(`getting login error`);
+		return axios.get("/loginform")
+	}
 
 // here is another get request function to confirm if the user is logged in or not
 // you can use this if you need to show / hide a login or logout button anywhere on the front-end
@@ -59,4 +58,4 @@
 // getResults: function() {
 // return axios.get("/api/:clothing/:gender/:measurement/");
 
-// }
+}

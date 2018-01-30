@@ -1,19 +1,72 @@
 import React, { Component } from "react";
 import "./LogIn.css";
-
+import API from "../../utils/API";
+import { BrowserRouter as Route, Redirect } from "react-router-dom";
+import Home from "./../Home";
 
 class LogIn extends Component {
+
+	state = {
+	  email: "",
+	  password: ""
+	};
+
+	handleInputChange = event => {
+	  const { name, value } = event.target;
+	  this.setState({
+	    [name]: value
+	  });
+	};
+
+	handleLogin = event => {
+	  event.preventDefault();
+	  if (this.state.email && this.state.password) {
+	  	console.log("Login.js says: "+ this.state.email + " " + this.state.password);
+	    API.Login(
+	    		{
+    		  		email: this.state.email,
+    		  		password: this.state.password
+	    		}
+	    	)
+	      .then(res => {
+	      	console.log("res is: "); 
+	      	console.log( res.status);
+	      	console.log( res); 
+	      	if (res.status === 200) { this.props.history.push('/') }
+	      })
+	      .catch(err => API.getLoginError()
+	      	.then(res => {console.log("res is: "); console.log( res); })
+	      	.catch(err => console.log(err)));
+	  }
+	};
+
 	render() {
 	    return (
 	    	<div className="logInBody">   
 			    <div className="logInContainer">
 			    	<h1>Size</h1>      
-			        <form action="/loginform" method="post">
-			        	<input name="email" type="email" placeholder="Email"></input>
+			        <form>
+			        	<input 
+			        		value={this.state.email}
+			        		onChange={this.handleInputChange}
+			        		name="email" 
+			        		type="email" 
+			        		placeholder="Email" />
 			        	<p></p>
-			        	<input name="password" type="password" placeholder="Password"></input>
+			        	<input 
+			        		value={this.state.password}
+			        		onChange={this.handleInputChange}
+			        		name="password" 
+			        		type="password" 
+			        		placeholder="Password" />
 			        	<p></p>
-			        	<button type="submit" className="logInButton">Log In</button>
+			        	<button 
+				        	disabled={!(this.state.password && this.state.email)}
+				        	onClick={this.handleLogin}
+			        		type="submit" 
+			        		className="logInButton">
+			        			Log In
+	        			</button>
 			        </form>
 			        <div className="createAccount">
 			        	<p>Don't have an accoutn yet?</p>
@@ -26,30 +79,3 @@ class LogIn extends Component {
 }
 
 export default LogIn;
-
-// LOGIN & SIGNUP
-// These requests should come straight from the form in the react page/component, example below:
-	// <form action="/loginform" method="post">
-	// <form action="/signupform" method="post">
-// I think this means we don't need axios calls for those two actions.
-// We just need to make sure that the form data matches up w/ the schema
-	// LOGIN & SIGNUP
-		// At least, use name="email", e.g.:
-			// <input type="email" name="email" />
-		// At least, use name="password", e.g.:
-			// <input type="password" name="password" />
-
-			// <div className="signUpContainer">
-			//     	<h1>Size</h1>      
-			//         <form action="/signUpform" method="post">
-			//         	<input name="email" type="email" placeholder="Email"></input>
-			//         	<p></p>
-			//         	<input name="password" type="password" placeholder="Password"></input>
-			//         	<p></p>
-			//         	<button type="submit" className="signUpButton">Log In</button>
-			//         </form>
-			//         <div className="createAccount">
-			//         	<p>Don't have an accoutn yet?</p>
-			//         	<p>Sign Up!</p>
-			//         </div>
-			//     </div>

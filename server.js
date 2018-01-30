@@ -13,8 +13,11 @@ var passport   = require('passport');
 var session    = require('express-session');
 var flash = require('connect-flash');
 
+// Requiring our models for syncing
+var db = require("./models");
 
-// Sets up the Express app to handle data parsing -------/
+
+// Sets up the Express app to han le data parsing -------/
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.text());
@@ -45,6 +48,12 @@ app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, function() {
-  console.log(`🌎 ==> Server now on port ${PORT}!`);
+
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+// add { force: true } in ".sync()" function if writing db schema for first time.
+db.sequelize.sync().then(function() {
+	app.listen(PORT, function() {
+	  console.log(`🌎 ==> Server now on port ${PORT}!`);
+	});
 });

@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./LogIn.css";
 import API from "../../utils/API";
-import { BrowserRouter as Route, Redirect } from "react-router-dom";
-import Home from "./../Home";
 
 class LogIn extends Component {
 
@@ -42,7 +40,7 @@ class LogIn extends Component {
 
 	render() {
 	    return (
-	    	<div className="logInBody">   
+			<div className="logInBody">   
 			    <div className="logInContainer">
 			    	<h1>Size</h1>      
 			        <form>
@@ -69,13 +67,14 @@ class LogIn extends Component {
 	        			</button>
 			        </form>
 			        <div className="createAccount">
-			        	<p>Don't have an accoutn yet?</p>
-			        	<p>Sign Up!</p>
+			        	<p>Don't have an account yet?</p>
+			        	<a href="/signup"><p>Sign Up!</p></a>
 			        </div>
 			    </div>
 	    	</div>
 		)
 	}
 }
+
 
 export default LogIn;

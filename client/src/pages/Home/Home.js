@@ -12,21 +12,37 @@ render() {
         <div className="appBody">
         <div className="navbar">
         <ul className="ul">
-                <li className="left"><Link to={"/"}><h3 className="h1">Size</h3></Link></li>
+                <li className="left"><Link to={"/"} style={{ textDecoration: 'none' }}>
+                <h3 className="h1">Size</h3>
+                 </Link>
+                 </li>
 
-                <li className="right"><Link to={"/login"}>Login</Link></li>
+                <li className="right">
+                <Link to={"/login"} style={{ textDecoration: 'none', color: 'orange'}}>
+                Login
+                </Link>
+                </li>
 
-                <li className="right"><Link to={"/signup"}>Sign Up</Link></li>
+                <li className="right"><Link to={"/signup"} 
+                    style={{ textDecoration: 'none', color: 'orange' }}>
+                Sign Up
+                </Link>
+                </li>
               </ul>
               
         </div>
        
          <div className="search">
+
         <form className="form">
-         <h1 className="h1">Size</h1>
-         <label  for="clothingtype"> Clothing type</label>
+                <Link to={"/"}style={{ textDecoration: 'none' }}>
+                <h1 className="h1">Size</h1>
+                </Link>
+         
+         
+        <label  for="clothingtype"> Clothing type </label>
          <select className="selection"id="clothingtype" name="clothingtype">
-             <option value="shoes"> Shoes</option>
+        <option value="shoes"> Shoes</option>
          </select>
         
 

@@ -93,7 +93,7 @@ const User = db.Users;
      },
      function(req, email, password, done) { // callback with email and password from our form
      	const User = db.Users;
-     	console.log("I am about to check if the user can login!");
+     	console.log("passport.js: I am about to check if the user can login!");
      	console.log(email);
      	//encrypt password
      	const isValidPassword = function(userpass, password) {
@@ -125,6 +125,7 @@ const User = db.Users;
 				}
 				
 				const userinfo = user.get();
+				console.log("passport.js - user found");
 				return done(null, userinfo);
 				//if an error is thrown, alert user
 				}).catch(function(err) {

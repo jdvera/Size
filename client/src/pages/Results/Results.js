@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import Sizes from "../../components/Sizes";
 import "./Results.css";
+import { Link } from "react-router-dom";
 
 class Results extends Component {
 
@@ -14,7 +15,9 @@ class Results extends Component {
 	    return (
 	    	<div className="searchBody">   
 			    <div className="formContainer">
-			    	<h1>Size</h1>      
+				<Link to={"/"} style={{ textDecoration: 'none' }}>
+                        <h1 className="h1">Size</h1>
+                         </Link>    
 			        <form>
 			        	<input placeholder="article"></input>
 			        	<p></p>

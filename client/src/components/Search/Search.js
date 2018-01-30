@@ -13,15 +13,16 @@ const Search = props =>
                 </Link>
 
 
-            <label  for="clothingtype"> Clothing type</label>
+            <label  for="clothingtype"></label>
             <select className="selection"id="clothingtype" name="clothingtype">
+                <option> Clothing Type </option>
                 <option value="shoes"> Shoes</option>
             </select>
             <br/>
 
-            <label  for="brand"> Brand (optional)</label>
+           
             <select className="selection" id="brand" name="brand">
-                <option> (none)</option>
+                <option>  Brand (optional)</option>
                 <option value="bcbg"> BCBG </option>
                 <option value="adidas"> Adidas</option>
                 <option value="asics"> Asics</option>
@@ -38,12 +39,12 @@ const Search = props =>
             </select>
             <br/>
 
-            <input type="radio" name="gender" value="male"/> Male
-            <input type="radio" name="gender" value="female"/> Female
+            <input className="gender" type="radio" name="gender" value="male"/> Male
+            <input className="gender" type="radio" name="gender" value="female"/> Female
             <br/>
    
-            <label  for="footlength"> Foot Length (in Inches)</label>
-            <input type="text" className="selection" id="footlength" name="footlength"/>
+    
+            <input className="input" type="text" className="selection" id="footlength" name="footlength" style={{color: 'orange' }}placeholder="Foot Length (in Inches)"/>
             <br/>
 
             <button className="input" type="submit" onClick={this.handleSearch}>

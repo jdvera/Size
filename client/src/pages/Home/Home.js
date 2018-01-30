@@ -36,17 +36,15 @@ class Home extends Component {
             <div className="appBody">
                 <div className="navbar">
                     <ul className="ul">
-                        <li className="left"><Link to={"/"} style={{ textDecoration: 'none' }}>
-                        <h3 className="h1">Size</h3>
-                         </Link>
-                         </li>
                         <li className="right"><Link to={"/login"} style={{ textDecoration: 'none', color: 'orange'}}>Login</Link></li>
                         <li className="right"><Link to={"/signup"} style={{ textDecoration: 'none', color: 'orange'}}>Sign Up</Link></li>
                     </ul>
                 </div>
                
+               
                 <Search />
             </div>
+            
         )
     }
 }

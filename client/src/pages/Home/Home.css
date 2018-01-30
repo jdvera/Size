@@ -1,17 +1,17 @@
 .homebody {    
-    background-image: url(../../images/hanger3.png);
     background-repeat: no-repeat;
-    background-color:orange;
-    color:white;
     font-family: 'Dosis', sans-serif
 }
 
+
+
 .ul {
+    color:orange;
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color:rgba(255,255,255,0.8);
+    background-color:white;
 
 }
 
@@ -19,7 +19,6 @@
     float: left;
     display: block;
     text-decoration: none;
-    color: orange;
     padding-left:14px;
     text-align: center;
     padding-bottom:0px;
@@ -37,27 +36,20 @@
 
 
 .h1 {
+    color:white;
     text-align: center;
     text-decoration: none;
-    color: orange;
     font-family: 'Dosis', sans-serif;
 }
 
 
-
-.search {
-    position: absolute;
-    left: 0;
-    top: 30%;
-    width: 100%;
-    text-align: center;
-    font-size: 25px;
+.h3 {
     color:orange;
-    background-color:rgba(255,255,255,0.8);
-    padding:20px;  
-    font-family: 'Dosis', sans-serif
-
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Dosis', sans-serif;
 }
+
 
 .selection {
     color: orange;

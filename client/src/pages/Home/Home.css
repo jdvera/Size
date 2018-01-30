@@ -4,3 +4,78 @@
     background-color:orange;
     color:white;
 }
+
+.ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:rgba(255,255,255,0.8);
+
+}
+
+.left {
+    float: left;
+    display: block;
+    color: orange;
+    padding-left:14px;
+    text-align: center;
+    text-decoration: none;
+    padding-bottom:0px;
+}
+
+
+.right {
+    float:right;
+    display: block;
+    color: orange;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-family: 'Rammetto One', cursive;
+}
+
+
+.h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: orange;
+    font-family: 'Rammetto One', cursive;
+}
+
+
+
+
+
+.search {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    color:black;
+    background-color:rgba(255,255,255,0.8);
+    padding:20px;  
+
+}
+
+.selection {
+    color: white;
+   background-color: orange;
+   border-radius: 20px;
+   padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+}
+
+.input[type=submit] {
+    background-color: orange;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}

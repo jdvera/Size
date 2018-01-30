@@ -7,13 +7,7 @@ export default {
 // 	// },
 
 
-// PASSPORT.JS AUTHENTICATION REQUESTS ╲╱╲╱╲╱╲╱╲╱╲╱╲╱╲╱╲╱
-// NOTE TO FE-DEV: the routes below (ie: "/signupform" must stay the same, but feel free to change the function names!
-
-
-
-
-
+// PASSPORT.JS AUTHENTICATION ========================= 
 	Login: function(userData) {
 		console.log("utils/API says.....");
 		console.log(userData);
@@ -26,30 +20,13 @@ export default {
 	},
 
 
-
-
-
-
-
-// LOGIN & SIGNUP
-// These requests should come straight from the form in the react page/component, example below:
-	// <form action="/loginform" method="post">
-	// <form action="/signupform" method="post">
-// I think this means we don't need axios calls for those two actions.
-// We just need to make sure that the form data matches up w/ the schema
-	// LOGIN & SIGNUP
-		// At least, use name="email", e.g.:
-			// <input type="email" name="email" />
-		// At least, use name="password", e.g.:
-			// <input type="password" name="password" />
-
-
 // we need functions to return error message data 
 // if/when passport returns an error on user signup or login
 // IE: "email is already registered", "wrong password", etc.
-	// getSignupError: function() {
-	// 	return axios.get("/signupform");
-	// }
+	getSignupError: function() {
+		console.log(`getting signup error`);
+		return axios.get("/signupform");
+	},
 
 	getLoginError: function() {
 		console.log(`getting login error`);

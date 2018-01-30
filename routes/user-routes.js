@@ -50,11 +50,23 @@ module.exports = function(app, passport) {
   });
 
   // // process the signup form
-  app.post('/signupform', passport.authenticate('local-signup', {
-    successRedirect : '/', // redirect to the add pairing page
-    failureRedirect : '/login', // redirect back to the signup page if there is an error
-    failureFlash: true
-  }));
+  // app.post('/signupform', passport.authenticate('local-signup', {
+  //   successRedirect : '/', // redirect to the add pairing page
+  //   failureRedirect : '/login', // redirect back to the signup page if there is an error
+  //   failureFlash: true
+  // }));
+
+
+  app.post('/signupform', function(req, res, next) {
+    passport.authenticate('local-signup', function(err, user, info) {
+     if (err)  { return next(err); }
+            if (!user) { return res.status(401).send({"ok": false}); }
+            req.logIn(user, function(err) {
+              if (err) { return res.status(401).send({"ok": false}); }
+              return res.json({status: "Success", redirect: '/'});
+            });
+    })(req, res, next);    
+  });
 
   app.get('/loggedin', function(req, res) {
     if (req.user) {

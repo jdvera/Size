@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./LogIn.css";
 import API from "../../utils/API";
+import { Link } from "react-router-dom";
 
 class LogIn extends Component {
 
@@ -47,7 +48,9 @@ class LogIn extends Component {
 	    return (
 			<div className="logInBody">   
 			    <div className="logInContainer">
-			    	<h1>Size</h1>      
+					<Link to={"/"}style={{ textDecoration: 'none' }}>
+                <h1 className="h1">Size</h1>
+                </Link>     
 			        <form>
 			        	<input 
 			        		value={this.state.email}

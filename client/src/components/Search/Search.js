@@ -1,20 +1,27 @@
 import React, { Component } from "react";
 import "./Search.css";
+import { Link } from "react-router-dom";
 
 
 const Search = props =>
 	<div className="search">
+    
         <form className="form">
-            <h1 className="h1">Size</h1>
-            <label  for="clothingtype"> Clothing type</label>
+
+            <Link to={"/"}style={{ textDecoration: 'none' }}>
+                <h1 className="h1">Size</h1>
+            </Link>
+
+
+            <label  for="clothingtype"></label>
             <select className="selection"id="clothingtype" name="clothingtype">
+                <option> Clothing Type </option>
                 <option value="shoes"> Shoes</option>
             </select>
             <br/>
-
-            <label  for="brand"> Brand (optional)</label>
+           
             <select className="selection" id="brand" name="brand">
-                <option> (none)</option>
+                <option>  Brand (optional)</option>
                 <option value="bcbg"> BCBG </option>
                 <option value="adidas"> Adidas</option>
                 <option value="asics"> Asics</option>
@@ -31,15 +38,15 @@ const Search = props =>
             </select>
             <br/>
 
-            <input type="radio" name="gender" value="male"/> Male
-            <input type="radio" name="gender" value="female"/> Female
+            <input type="radio" name="gender" value="male" onChange={props.handleInputChange}/> Male
+            <input type="radio" name="gender" value="female" onChange={props.handleInputChange}/> Female
             <br/>
    
-            <label  for="footlength"> Foot Length (in Inches)</label>
-            <input type="text" className="selection" id="footlength" name="foodlength"></input>
+            <label  htmlFor="footlength"> Foot Length (in Inches)</label>
+            <input type="text" className="selection" id="footlength" name="measurement" onChange={props.handleInputChange}></input>
             <br/>
 
-            <button className="input" type="submit" onClick={this.handleSearch}>
+            <button className="input" type="submit" onClick={props.handleSearch}>
                 Submit
             </button>
         </form>

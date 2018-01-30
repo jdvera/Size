@@ -12,14 +12,6 @@ module.exports = function(app, passport) {
 // Authentication Routes
   // =====================
 
-  // view route for signin
-  app.get("/login", function(req, res) {
-    console.log("looking for /login");
-    res.sendFile(path.join(__dirname, "../client/src/pages/login/index.js"));
-  });
-
-
-
   // send signup errors to client side
   app.get('/signupform', function(req, res) {
       res.send({message: req.flash('error')});
@@ -30,18 +22,19 @@ module.exports = function(app, passport) {
       res.send({message: req.flash('error')});
   });
 
-  // process the login form
-  // app.post('/loginform', passport.authenticate('local-login', {
-  //     successRedirect : '/', // redirect to the secure profile section
-  //     failureRedirect : '/login', // redirect back to the signup page if there is an error
-  //     failureFlash: true
-  // }));
-
 
   app.post('/loginform', function(req, res, next) {
     passport.authenticate('local-login', function(err, user, info) {
-     if (err)  { return next(err); }
-            if (!user) { return res.status(401).send({"ok": false}); }
+      console.log( "err is " + err);
+      console.log( "user is " + user);
+      console.log( "info is ");
+      console.log(info);
+     if (err)  { 
+      console.log(err);
+      return next(err);
+       }
+            // if (!user) { return res.status(401).send(info); }
+            if (!user) { return res.status(401).json({status: "401", response: info}) };
             req.logIn(user, function(err) {
               if (err) { return res.status(401).send({"ok": false}); }
               return res.json({status: "Success", redirect: '/'});

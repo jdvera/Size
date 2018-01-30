@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./NoMatch.css";
 
 
@@ -12,33 +12,33 @@ const NoMatch = () =>
 
 		<div className="addsContainer">
 	    	<ul>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
-	    		<li>💯 Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
+	    		<li><span role="img" aria-label="100">💯</span> Baggio</li>
 	    	</ul>
 	    </div>
 	</div>

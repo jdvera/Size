@@ -72,6 +72,7 @@
     cursor: pointer;
 }
 
+
 /*AFTER SEARCH
 -------------------*/
 
@@ -85,4 +86,12 @@
     position: fixed;
     top: 2%;
     left: 2%;
+}
+
+@media screen and (max-width: 640px) {
+
+    .homebody {
+        background-image: url(../../images/hanger3mobile.png);
+    }
+    
 }

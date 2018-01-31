@@ -10,7 +10,9 @@
  	top: 2%;
  	left: 2%;
 }
-
+.parrots {
+	width: 200px;
+}
 .addsContainer {
 	text-align: center;
 	width: 60%;

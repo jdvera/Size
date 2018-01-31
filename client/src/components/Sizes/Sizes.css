@@ -60,6 +60,8 @@
 	border-radius: 10px;
 	top: 2%;
 	overflow-y: scroll;
+	margin: auto;
+	width: 94%;
 }
 
 .itemsContainer li {

@@ -32,7 +32,7 @@ module.exports = function(app) {
 			}
 		}).then(function(dbSizes) {
 			console.log("\nresults\n----------");
-			console.log(dbSizes[0].id);
+			console.log(dbSizes);
 			res.json(dbSizes);
 		});
 	});

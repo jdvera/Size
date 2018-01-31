@@ -22,10 +22,9 @@
 
 .search {
     background-color:orange;
-    margin:auto;
-    left: 0;
-    top: 50%;
     width: 90%;
+    margin:auto;
+    top: 50%;
     border-radius: 10px;
     text-align: center;
     font-size: 25px;
@@ -33,4 +32,9 @@
     padding:20px;  
     font-family: 'Dosis', sans-serif;
 
+}
+
+.beforeSearch {
+    width: 90%;
+    margin: auto;
 }

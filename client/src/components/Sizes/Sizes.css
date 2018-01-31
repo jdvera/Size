@@ -1,6 +1,7 @@
 .searchBody {
 	width: 100%;
 	margin: auto;
+	margin-top: 10px;
 }
 .searchBody h1 {
 	font-size: 60px;

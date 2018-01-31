@@ -39,6 +39,7 @@ if (process.env.NODE_ENV === "production") {
 // Server Routes
 // =============================================================
 require("./routes/user-routes.js")(app, passport);
+require("./routes/sizesRoutes.js")(app);
 // load passport strategies
 require('./config/passport.js')(passport);
 

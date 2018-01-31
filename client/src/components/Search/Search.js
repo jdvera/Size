@@ -12,8 +12,6 @@ const Search = props =>
                 <h1 className="h1">Size</h1>
             </Link>
 
-
-            <label  for="clothingtype"></label>
             <select className="selection"id="clothingtype" name="clothingtype">
                 <option> Clothing Type </option>
                 <option value="shoes"> Shoes</option>

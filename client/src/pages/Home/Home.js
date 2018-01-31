@@ -29,7 +29,7 @@ class Home extends Component {
         if (this.state.brand) {
             API.getSizes(this.state)
                .then(res => {
-                //figure out how to display res on this page
+                console.log(res.data);
                })
                .catch(err => console.log(err));
         }
@@ -41,7 +41,7 @@ class Home extends Component {
                     }
                )
                .then(res => {
-                //figure out how to display res on this page
+                console.log(res.data);
                })
                .catch(err => console.log(err));
         }

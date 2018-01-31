@@ -14,9 +14,10 @@ module.exports = function(app) {
 				gender: req.params.gender,
 				inchMin: { [Op.lte]: req.params.measurement},
 				inchMax: { [Op.gte]: req.params.measurement }
-			}
-		}).then(function(dbPost) {
-			res.json(dbPost);
+			},
+    		include: [db.Logos]
+		}).then(function(dbSizes) {
+			res.json(dbSizes);
 		});
 	});
 
@@ -28,17 +29,18 @@ module.exports = function(app) {
 				gender: req.params.gender,
 				inchMin: { [Op.lte]: req.params.measurement },
 				inchMax: { [Op.gte]: req.params.measurement }
-			}
-		}).then(function(dbPost) {
-			res.json(dbPost);
+			},
+    		include: [db.Logos]
+		}).then(function(dbSizes) {
+			res.json(dbSizes);
 		});
 	});
 
 	// app.post("/api/sizes", function(req, res) {
 	// 	db.Sizes.findOne({ where: { brand: req.body.brand, size: req.body.size } }).then(function(response) {
 	// 		if(!user) {
-	// 			db.Sizes.create(req.body).then(function(dbPost) {
-	// 				res.json(dbPost);
+	// 			db.Sizes.create(req.body).then(function(dbSizes) {
+	// 				res.json(dbSizes);
 	// 			});
 	// 		}
 	// 		else {

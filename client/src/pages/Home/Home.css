@@ -5,12 +5,12 @@
     text-align: center;
     background-color: orange;
     border-radius: 10px;
-    margin: 20px auto;
+    margin:  auto;
     font-size: 30px;
     
 }
 
-afterSearchContainer {
+.afterSearchContainer {
     width: 100%;
 }
 
@@ -112,3 +112,11 @@ afterSearchContainer {
 }
 
 
+<<<<<<< HEAD
+    .afterSearch{
+        display:inline-block;
+    }
+    
+}
+=======
+>>>>>>> 12f94483f894cc2aff8cb85f6170d9ac02aadd2b

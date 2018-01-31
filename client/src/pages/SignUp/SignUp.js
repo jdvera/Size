@@ -46,8 +46,8 @@ class SignUp extends Component {
 	    return (
 			<div className="signUpBody">
 		    	<div className="signUpContainer">
+		    		<h1>Size</h1>
 					<Link to={"/"}style={{ textDecoration: 'none' }}>
-                <h1 className="h1">Size</h1>
                 </Link>           
 			        <form action="signupform" method="post">
 			        	<input 

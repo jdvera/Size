@@ -10,6 +10,7 @@
 }
 
 .searchBody input {
+	
 	font-family: 'Dosis', sans-serif;
 	font-size: 20px;
 	border-radius: 10px;
@@ -19,12 +20,16 @@
 }
 
 .formContainer {
+	clear:both;
 	font-family: 'Dosis', sans-serif;
  	width: 90%;
  	text-align: center;
  	background-color: orange;
  	border-radius: 10px;
+<<<<<<< HEAD
+=======
 
+>>>>>>> 12f94483f894cc2aff8cb85f6170d9ac02aadd2b
  	top: 2%;
  	left: 2%;
 }
@@ -58,8 +63,14 @@
 	border-width: 3px;
 	border-color: orange;
 	border-radius: 10px;
+<<<<<<< HEAD
+	right: 2%;
+=======
+>>>>>>> 12f94483f894cc2aff8cb85f6170d9ac02aadd2b
 	top: 2%;
 	overflow-y: scroll;
+	margin: auto;
+	width: 94%;
 }
 
 .itemsContainer li {

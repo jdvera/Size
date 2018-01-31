@@ -100,20 +100,19 @@
 
 .afterSearch {
     font-family: 'Dosis', sans-serif;
-    width: 30%;
+    width: 100%;
     height: 95%;
     text-align: center;
     background-color: orange;
     border-radius: 10px;
-    position: fixed;
-    top: 2%;
-    left: 2%;
 }
 
-@media screen and (max-width: 640px) {
 
+<<<<<<< HEAD
     .afterSearch{
         display:inline-block;
     }
     
 }
+=======
+>>>>>>> 12f94483f894cc2aff8cb85f6170d9ac02aadd2b

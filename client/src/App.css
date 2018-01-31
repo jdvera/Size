@@ -1,9 +1,13 @@
 body {
-	margin:0px;
+margin: 0px;
+width: 90%;
+margin: auto;
 }
 
 .appBody {
-    background-color:white;
+	background-color:white;
+	width: 90%;
+	margin: auto;
     color:orange;
 	height: 800px;
 	overflow-x: hidden;
@@ -12,4 +16,6 @@ body {
 
 .appBody p {
 	color: black;
+	width: 90%;
+	margin: auto;
 }

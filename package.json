@@ -29,8 +29,12 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
+<<<<<<< HEAD
     "react": "^16.2.0",
     "responsive": "^1.0.1",
+=======
+    "react-media": "^1.6.1",
+>>>>>>> 12f94483f894cc2aff8cb85f6170d9ac02aadd2b
     "sequelize": "^4.32.2"
   }
 }

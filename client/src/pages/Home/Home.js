@@ -12,7 +12,8 @@ class Home extends Component {
     state = {
         gender: "",
         brand: "",
-        measurement: ""
+        measurement: "",
+        results: []
     };
     
     handleInputChange = event => {
@@ -30,6 +31,8 @@ class Home extends Component {
             API.getSizes(this.state)
                .then(res => {
                 console.log(res.data);
+                this.setState({ results:res.data });
+
                })
                .catch(err => console.log(err));
         }
@@ -50,13 +53,6 @@ class Home extends Component {
     render() {
         return (
             <div className="appBody">
-                <div className="navbar">
-                    <ul className="ul">
-                        <li className="right"><Link to={"/login"} style={{ textDecoration: 'none', color: 'orange'}}>Login</Link></li>
-                        <li className="right"><Link to={"/signup"} style={{ textDecoration: 'none', color: 'orange'}}>Sign Up</Link></li>
-                    </ul>
-                </div>
-
                 {!this.hasSearched ? (<div className="beforeSearch"><Search handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/></div>)
                 : (<div><div className="afterSearch"><Search handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/></div><Sizes /></div>)}
             </div>

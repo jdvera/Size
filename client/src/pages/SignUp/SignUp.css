@@ -16,7 +16,8 @@
 
 .signUpContainer {
 	font-family: 'Dosis', sans-serif;
- 	width: 30%;
+	 width: 30%;
+	 min-width: 300px;
  	height: 750px;
  	text-align: center;
  	background-color: orange;

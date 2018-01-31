@@ -20,8 +20,8 @@ const Search = props =>
             </select>
             <br/>
            
-            <select className="selection" id="brand" name="brand">
-                <option>  Brand (optional)</option>
+            <select className="selection" id="brand" name="brand" onChange={props.handleInputChange}>
+                <option value="">  Brand (optional)</option>
                 <option value="bcbg"> BCBG </option>
                 <option value="adidas"> Adidas</option>
                 <option value="asics"> Asics</option>

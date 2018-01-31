@@ -58,6 +58,7 @@
 	border-color: orange;
 	border-radius: 10px;
 	top: 2%;
+	overflow-y: scroll;
 }
 
 .itemsContainer li {

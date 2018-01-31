@@ -7,17 +7,17 @@ module.exports = function(app) {
 	app.get("/api/sizes/:gender/:measurement/:brand", function(req, res) {
 		console.log("included brand\n------------");
 		console.log(req.params);
-		console.log(req.params);
 		db.Sizes.findOne({
 			where: {
 				brand: req.params.brand,
 				gender: req.params.gender,
 				inchMin: { [Op.lte]: req.params.measurement},
 				inchMax: { [Op.gte]: req.params.measurement }
-			},
-    		include: [db.Logos]
+			}
 		}).then(function(dbSizes) {
-			res.json(dbSizes);
+			console.log("\nresults\n----------");
+			console.log(dbSizes);
+			res.json([{ brand: "Nike", gender: "male", size: "10" }, { brand: "Adidas", gender: "male", size: "10" }]);
 		});
 	});
 
@@ -29,9 +29,10 @@ module.exports = function(app) {
 				gender: req.params.gender,
 				inchMin: { [Op.lte]: req.params.measurement },
 				inchMax: { [Op.gte]: req.params.measurement }
-			},
-    		include: [db.Logos]
+			}
 		}).then(function(dbSizes) {
+			console.log("\nresults\n----------");
+			console.log(dbSizes.length);
 			res.json(dbSizes);
 		});
 	});

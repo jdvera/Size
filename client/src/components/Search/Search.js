@@ -42,8 +42,7 @@ const Search = props =>
             <input type="radio" name="gender" value="female" onChange={props.handleInputChange}/> Female
             <br/>
    
-            <label  htmlFor="footlength"> Foot Length (in Inches)</label>
-            <input type="text" className="selection" id="footlength" name="measurement" onChange={props.handleInputChange}></input>
+            <input placeholder="Foot Length (in Inches)" type="text" className="selection" id="footlength" name="measurement" onChange={props.handleInputChange}></input>
             <br/>
 
             <button className="input" type="submit" onClick={props.handleSearch}>

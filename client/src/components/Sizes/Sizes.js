@@ -17,13 +17,17 @@ class Sizes extends Component {
 	// </li>
 	render() {
 		return (
-			<ul>
-				<li className="singleItem">
-					<img src="https://seeklogo.com/images/A/adidas-logo-9AA835C1C2-seeklogo.com.png" />
-					<p>Adidas</p>
-					<p>8</p>
-				</li>
-			</ul>
+			<div className="searchBody">   
+			    <div className="itemsContainer">
+					<ul>
+						<li className="singleItem">
+							<img src="https://seeklogo.com/images/A/adidas-logo-9AA835C1C2-seeklogo.com.png" />
+							<p>Adidas</p>
+							<p>8</p>
+						</li>
+					</ul>
+				</div>
+	    	</div>
 		)
 	}
 }

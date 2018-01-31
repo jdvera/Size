@@ -3,8 +3,6 @@
     font-family: 'Dosis', sans-serif
 }
 
-
-
 .ul {
     color:orange;
     list-style-type: none;
@@ -72,4 +70,19 @@
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+/*AFTER SEARCH
+-------------------*/
+
+.afterSearch {
+    font-family: 'Dosis', sans-serif;
+    width: 30%;
+    height: 95%;
+    text-align: center;
+    background-color: orange;
+    border-radius: 10px;
+    position: fixed;
+    top: 2%;
+    left: 2%;
 }

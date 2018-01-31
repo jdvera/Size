@@ -1,3 +1,53 @@
+.searchBody h1 {
+	font-size: 60px;
+	color: white;
+	overflow-x: hidden;
+}
+
+.searchBody input {
+	font-family: 'Dosis', sans-serif;
+	font-size: 20px;
+	border-radius: 10px;
+	padding: 5px;
+	border-width: 0px;
+	width: 60%
+}
+
+.formContainer {
+	font-family: 'Dosis', sans-serif;
+ 	width: 30%;
+ 	height: 95%;
+ 	text-align: center;
+ 	background-color: orange;
+ 	border-radius: 10px;
+ 	position: fixed;
+ 	top: 2%;
+ 	left: 2%;
+}
+
+.searchButton {
+	font-family: 'Dosis', sans-serif;
+	font-size: 20px;
+	color: orange;
+	padding: 5px;
+	border-radius: 10px;
+	border-width: 0px;
+	cursor: pointer;
+}
+
+.suggestBrand {
+	color: white;
+	text-decoration: underline;
+	position: fixed;
+	bottom: 5%;
+	padding: 0 11%;
+}
+
+.suggestBrand a{
+	color: white;
+	text-decoration: white;
+}
+
 .itemsContainer {
 	text-align: center;
 	width: 60%;

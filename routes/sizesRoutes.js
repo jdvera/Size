@@ -7,7 +7,6 @@ module.exports = function(app) {
 	app.get("/api/sizes/:gender/:measurement/:brand", function(req, res) {
 		console.log("included brand\n------------");
 		console.log(req.params);
-		console.log(req.params);
 		db.Sizes.findOne({
 			where: {
 				brand: req.params.brand,
@@ -15,8 +14,10 @@ module.exports = function(app) {
 				inchMin: { [Op.lte]: req.params.measurement},
 				inchMax: { [Op.gte]: req.params.measurement }
 			}
-		}).then(function(dbPost) {
-			res.json(dbPost);
+		}).then(function(dbSizes) {
+			console.log("\nresults\n----------");
+			console.log(dbSizes);
+			res.json([{ brand: "Nike", gender: "male", size: "10" }, { brand: "Adidas", gender: "male", size: "10" }]);
 		});
 	});
 
@@ -29,16 +30,18 @@ module.exports = function(app) {
 				inchMin: { [Op.lte]: req.params.measurement },
 				inchMax: { [Op.gte]: req.params.measurement }
 			}
-		}).then(function(dbPost) {
-			res.json(dbPost);
+		}).then(function(dbSizes) {
+			console.log("\nresults\n----------");
+			console.log(dbSizes.length);
+			res.json(dbSizes);
 		});
 	});
 
 	// app.post("/api/sizes", function(req, res) {
 	// 	db.Sizes.findOne({ where: { brand: req.body.brand, size: req.body.size } }).then(function(response) {
 	// 		if(!user) {
-	// 			db.Sizes.create(req.body).then(function(dbPost) {
-	// 				res.json(dbPost);
+	// 			db.Sizes.create(req.body).then(function(dbSizes) {
+	// 				res.json(dbSizes);
 	// 			});
 	// 		}
 	// 		else {

@@ -37,13 +37,13 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Sizes.associate = function(models) {
-    Sizes.belongsTo(models.Logos, {
-      // foreignKey: {
-      //   allowNull: false
-      // }
-    });
-  };
+  // Sizes.associate = function(models) {
+  //   Sizes.belongsTo(models.Logos, {
+  //     // foreignKey: {
+  //     //   allowNull: false
+  //     // }
+  //   });
+  // };
 
   return Sizes;
 };

@@ -16,9 +16,9 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Logos.associate = function(models) {
-    Logos.hasMany(models.Sizes);
-  };
+  // Logos.associate = function(models) {
+  //   Logos.hasMany(models.Sizes);
+  // };
 
   return Logos;
 };

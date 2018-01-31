@@ -14,9 +14,10 @@ module.exports = function(app) {
 				gender: req.params.gender,
 				inchMin: { [Op.lte]: req.params.measurement},
 				inchMax: { [Op.gte]: req.params.measurement }
-			},
-    		include: [db.Logos]
+			}
 		}).then(function(dbSizes) {
+			console.log("\nresults\n----------");
+			console.log(dbSizes);
 			res.json(dbSizes);
 		});
 	});
@@ -29,9 +30,10 @@ module.exports = function(app) {
 				gender: req.params.gender,
 				inchMin: { [Op.lte]: req.params.measurement },
 				inchMax: { [Op.gte]: req.params.measurement }
-			},
-    		include: [db.Logos]
+			}
 		}).then(function(dbSizes) {
+			console.log("\nresults\n----------");
+			console.log(dbSizes);
 			res.json(dbSizes);
 		});
 	});

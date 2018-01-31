@@ -7,7 +7,6 @@ module.exports = function(app) {
 	app.get("/api/sizes/:gender/:measurement/:brand", function(req, res) {
 		console.log("included brand\n------------");
 		console.log(req.params);
-		console.log(req.params);
 		db.Sizes.findOne({
 			where: {
 				brand: req.params.brand,
@@ -18,7 +17,7 @@ module.exports = function(app) {
 		}).then(function(dbSizes) {
 			console.log("\nresults\n----------");
 			console.log(dbSizes);
-			res.json(dbSizes);
+			res.json([{ brand: "Nike", gender: "male", size: "10" }, { brand: "Adidas", gender: "male", size: "10" }]);
 		});
 	});
 
@@ -33,7 +32,7 @@ module.exports = function(app) {
 			}
 		}).then(function(dbSizes) {
 			console.log("\nresults\n----------");
-			console.log(dbSizes);
+			console.log(dbSizes.length);
 			res.json(dbSizes);
 		});
 	});

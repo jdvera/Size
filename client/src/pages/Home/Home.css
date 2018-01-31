@@ -5,7 +5,7 @@
     text-align: center;
     background-color: orange;
     border-radius: 10px;
-    margin: 20px auto;
+    margin:  auto;
     font-size: 30px;
     
 }
@@ -112,8 +112,8 @@
 
 @media screen and (max-width: 640px) {
 
-    .homebody {
-        background-image: url(../../images/hanger3mobile.png);
+    .afterSearch{
+        display:inline-block;
     }
     
 }

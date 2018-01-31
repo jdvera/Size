@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import "./Sizes.css";
 
+
 class Sizes extends Component {
 
 	//make get request

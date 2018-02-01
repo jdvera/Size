@@ -4,17 +4,17 @@ import "./Sizes.css";
 
 const Sizes = props =>
 	
-	<div className="searchBody">   
+	<div className="resultsBody">   
 	    <div className="itemsContainer">
-			<ul>
+			<div className="jamesDiv">
 				{props.results.length ? props.results.map(item => 
-                    <li className="singleItem">
+                    <div className="singleItem">
                         <img src={item.Logo.imageUrl} />
                         <p>{item.Logo.brand}</p>
                         <p>{item.size}</p>
-                    </li>)
-				: <li>😭<br/>No Results</li>}
-			</ul>
+                    </div>)
+				: <div>😭<br/>No Results</div>}
+			</div>
 		</div>
 	</div>
 	

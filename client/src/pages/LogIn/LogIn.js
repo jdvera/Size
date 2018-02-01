@@ -76,7 +76,7 @@ class LogIn extends Component {
 			        </form>
 			        <div className="createAccount">
 			        	<p>Don't have an account yet?</p>
-			        	<a href="/signup"><p>Sign Up!</p></a>
+			        	<a href="/signup">Sign Up!</a>
 			        </div>
 			    </div>
 	    	</div>

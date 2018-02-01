@@ -2,11 +2,20 @@ import axios from "axios";
 
 export default {
 // PASSPORT.JS AUTHENTICATION ========================= 
+
+	// Is user logged in?
+	AuthStatus: function() {
+		console.log("utils/API.js running AuthStatus");
+		return axios.get("/authstatus");
+	},
+
+	// login
 	Login: function(userData) {
 		console.log("utils/API says.....");
 		console.log(userData);
 		return axios.post("/loginform", userData);
 	}, 
+	// signup
 	Signup: function(userData) {
 		console.log("utils/API says.....");
 		console.log(userData);

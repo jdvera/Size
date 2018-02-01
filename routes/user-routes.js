@@ -110,10 +110,15 @@ module.exports = function(app, passport) {
     // });
   // END PASSSPORT CUSTOM CALLBACK ROUTES ^^
 
-  app.get('/loggedin', function(req, res) {
+  app.get('/authstatus', function(req, res) {
+    console.log("user-routes.js: running /authstatus");
     if (req.user) {
+      console.log("user is loged in!");
+      console.log(req.user);
       res.send(true);
     } else {
+      console.log("user is loged in!");
+      console.log(req.user);
       res.send(false);
     }
   });

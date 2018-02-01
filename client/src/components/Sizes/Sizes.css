@@ -63,7 +63,6 @@
 	top: 2%;
 	overflow-y: scroll;
 	margin: auto;
-	width: 94%;
 	display: inline-block;
 	vertical-align: top;
 }
@@ -83,7 +82,7 @@
 
 .singleItem {
 	max-width: 100px;
-	height: 150px;
+	height: 200px;
 	
 }
 

@@ -1,9 +1,13 @@
+* { 
+	padding:0; margin: 0 
+}
+
 .searchBody {
 	width: 100%;
 	margin: auto;
 	margin-top: 10px;
 }
-.searchBody h1 {
+.resultsBody h1 {
 	font-size: 60px;
 	color: white;
 
@@ -45,7 +49,7 @@
 	text-decoration: underline;
 	position: fixed;
 	bottom: 5%;
-	padding: 0 11%;
+	/*padding: 0 11%;*/
 }
 
 .suggestBrand a{
@@ -63,10 +67,21 @@
 	top: 2%;
 	overflow-y: scroll;
 	margin: auto;
-	width: 94%;
+	height: 250px;
+}
+/*IN MEMORY OF JAMES D. VERA WHOSE HEART AND SOUL WAS POURED IN EVERY PROJECT HE HELPED CREATE
+WITH LOVE, EVERYONE*/
+.jamesDiv {
+	width: 1000%;
+	white-space: nowrap;
 }
 
-.itemsContainer li {
+.containerDiv {
+	padding: 30px;
+}
+
+.singleItem {
+	float: left;
 	font-family: 'Dosis', sans-serif;
 	display: inline-block;
 	border-style: solid;
@@ -75,15 +90,11 @@
 	border-radius: 10px;
 	padding: 40px;
 	margin: 30px;
-}
-
-.singleItem {
-	max-width: 100px;
-	max-height: 100px;
+	width: 100px;
+	height: 100px;
 }
 
 .singleItem img {
-	max-width: 100px;
-	max-height: 80px;
-
+	width: 65px;
+	height: 65px;
 }

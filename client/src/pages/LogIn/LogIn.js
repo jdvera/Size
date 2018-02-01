@@ -91,7 +91,7 @@ class LogIn extends Component {
 			        <div className="errorMessage">{this.state.error}</div>
 			        <div className="createAccount">
 			        	<p>Don't have an account yet?</p>
-			        	<a href="/signup"><p>Sign Up!</p></a>
+			        	<a href="/signup">Sign Up!</a>
 			        </div>
 			    </div>
 	    	</div>

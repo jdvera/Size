@@ -67,11 +67,6 @@
 	top: 2%;
 	overflow-y: scroll;
 	margin: auto;
-<<<<<<< HEAD
-	display: inline-block;
-	vertical-align: top;
-=======
-	width: 94%;
 	height: 250px;
 }
 /*IN MEMORY OF JAMES D. VERA WHOSE HEART AND SOUL WAS POURED IN EVERY PROJECT HE HELPED CREATE
@@ -83,7 +78,6 @@ WITH LOVE, EVERYONE*/
 
 .containerDiv {
 	padding: 30px;
->>>>>>> integration
 }
 
 .singleItem {
@@ -96,19 +90,8 @@ WITH LOVE, EVERYONE*/
 	border-radius: 10px;
 	padding: 40px;
 	margin: 30px;
-<<<<<<< HEAD
-	vertical-align: top;
-	
-}
-
-.singleItem {
-	max-width: 100px;
-	height: 200px;
-	
-=======
 	width: 100px;
 	height: 100px;
->>>>>>> integration
 }
 
 .singleItem img {

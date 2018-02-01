@@ -26,10 +26,6 @@
  	text-align: center;
  	background-color: orange;
  	border-radius: 10px;
-<<<<<<< HEAD
-=======
-
->>>>>>> 12f94483f894cc2aff8cb85f6170d9ac02aadd2b
  	top: 2%;
  	left: 2%;
 }
@@ -63,10 +59,7 @@
 	border-width: 3px;
 	border-color: orange;
 	border-radius: 10px;
-<<<<<<< HEAD
 	right: 2%;
-=======
->>>>>>> 12f94483f894cc2aff8cb85f6170d9ac02aadd2b
 	top: 2%;
 	overflow-y: scroll;
 	margin: auto;

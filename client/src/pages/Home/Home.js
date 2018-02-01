@@ -28,10 +28,19 @@ class Home extends Component {
         this.hasSearched = true;
         
         if (this.state.brand) {
-            API.getSizes(this.state)
+            API.getSizes({
+                brand: this.state.brand,
+                gender: this.state.gender,
+                measurement: this.state.measurement
+            })
                .then(res => {
                 console.log(res.data);
-                this.setState({ results:res.data });
+                if(res.data){
+                    this.setState({ results: [res.data] });
+                }
+                else{
+                    this.setState({ results: [] });
+                }
                 console.log(this.state);
                })
                .catch(err => console.log(err));

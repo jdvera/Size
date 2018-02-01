@@ -14,10 +14,11 @@ module.exports = function(app) {
 				inchMin: { [Op.lte]: req.params.measurement},
 				inchMax: { [Op.gte]: req.params.measurement }
 			}
+		    // include: [db.Logo]
 		}).then(function(dbSizes) {
 			console.log("\nresults\n----------");
 			console.log(dbSizes);
-			res.json([{ brand: "Nike", gender: "male", size: "10" }, { brand: "Adidas", gender: "male", size: "10" }]);
+			res.json(dbSizes);
 		});
 	});
 
@@ -30,6 +31,7 @@ module.exports = function(app) {
 				inchMin: { [Op.lte]: req.params.measurement },
 				inchMax: { [Op.gte]: req.params.measurement }
 			}
+		    // include: [db.Logo]
 		}).then(function(dbSizes) {
 			console.log("\nresults\n----------");
 			console.log(dbSizes);

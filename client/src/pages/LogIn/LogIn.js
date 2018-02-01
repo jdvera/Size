@@ -7,11 +7,9 @@ class LogIn extends Component {
 
 	state = {
 	  email: "",
-	  password: ""
+	  password: "",
+	  auth: ""
 	};
-
-
-
 
 	handleInputChange = event => {
 	  const { name, value } = event.target;
@@ -38,9 +36,6 @@ class LogIn extends Component {
 	      	if (res.status === 200) { this.props.history.push('/') }
 	      })
 	      .catch(err => console.log(err))
-	      // .catch(err => API.getLoginError()
-	      // 	.then(res => {console.log("res is: "); console.log( res); })
-	      // 	.catch(err => console.log(err)));
 	  }
 	};
 
@@ -56,9 +51,7 @@ class LogIn extends Component {
 					<Link to={"/"}style={{ textDecoration: 'none' }}>
                 <h1 className="h1">Size</h1>
                 </Link>     
-			        <form 
-			        // action="/loginform" method="POST"
-			        >
+			        <form>
 			        	<input 
 			        		value={this.state.email}
 			        		onChange={this.handleInputChange}

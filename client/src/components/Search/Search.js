@@ -7,7 +7,6 @@ const Search = props =>
 	<div className="search">
     
         <form className="form">
-
             <Link to={"/"}style={{ textDecoration: 'none' }}>
                 <h1 className="h1">Size</h1>
             </Link>
@@ -46,6 +45,8 @@ const Search = props =>
             <button className="searchButton" type="submit" onClick={props.handleSearch}>
                 Submit
             </button>
+            <p className="welcomeText">Welcome back, <a href="/login">Sign In</a>.</p>
+
         </form>
     </div>
 

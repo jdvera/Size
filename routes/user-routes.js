@@ -29,17 +29,22 @@ module.exports = function(app, passport) {
       console.log( "user is " + user);
       console.log( "info is ");
       console.log(info);
-     if (err)  { 
-      console.log(err);
-      return next(err);
-       }
-            // if (!user) { return res.status(401).send(info); }
-            if (!user) { return res.status(401).json({status: "401", response: info}) };
-            req.logIn(user, function(err) {
-              if (err) { return res.status(401).send({"ok": false}); }
-              return res.json({status: "Success", redirect: '/'});
-            });
-    })(req, res, next);    
+      if (err)  { 
+        console.log(err);
+        return next(err);
+      }
+      // if (!user) { return res.status(401).send(info); }
+      if (!user) {
+        return res.status(401).json({status: "401", response: info})
+      };
+      req.logIn(user, function(err) {
+        if (err) {
+          return res.status(401).send({"ok": false});
+        }
+        return res.json({status: "Success", redirect: '/'});
+      });
+    })(req, res, next);
+    // based on the above line, it looks like passport.authenticate() returns a function?  --------------------- JV
   });
 
   // // process the signup form

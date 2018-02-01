@@ -20,19 +20,19 @@ const Search = props =>
            
             <select className="selection" id="brand" name="brand" onChange={props.handleInputChange}>
                 <option value="">  Brand (optional)</option>
-                <option value="bcbg"> BCBG </option>
-                <option value="adidas"> Adidas</option>
-                <option value="asics"> Asics</option>
-                <option value="converse"> Converse</option>
-                <option value="dcshoes"> DCShoes</option>
-                <option value="newbalance"> New Balance</option>
-                <option value="nike"> Nike</option>
-                <option value="ninewest"> Nine West</option>
-                <option value="puma"> Puma</option>
-                <option value="reebok"> Reebok</option>
-                <option value="stevemadden"> Steve Madden</option>
-                <option value="underarmor"> Under Armor</option>
-                <option value="vans"> Vans</option>
+                <option value="13"> BCBG </option>
+                <option value="3"> Adidas</option>
+                <option value="12"> Asics</option>
+                <option value="4"> Converse</option>
+                <option value="10"> DCShoes</option>
+                <option value="8"> New Balance</option>
+                <option value="2"> Nike</option>
+                <option value="1"> Nine West</option>
+                <option value="9"> Puma</option>
+                <option value="11"> Reebok</option>
+                <option value="6"> Steve Madden</option>
+                <option value="7"> Under Armor</option>
+                <option value="5"> Vans</option>
             </select>
             <br/>
 

@@ -9,12 +9,12 @@ module.exports = function(app) {
 		console.log(req.params);
 		db.Sizes.findOne({
 			where: {
-				brand: req.params.brand,
 				gender: req.params.gender,
 				inchMin: { [Op.lte]: req.params.measurement},
-				inchMax: { [Op.gte]: req.params.measurement }
-			}
-		    // include: [db.Logo]
+				inchMax: { [Op.gte]: req.params.measurement },
+				LogoId: req.params.brand
+			},
+		    include: [db.Logos]
 		}).then(function(dbSizes) {
 			console.log("\nresults\n----------");
 			console.log(dbSizes);
@@ -30,8 +30,8 @@ module.exports = function(app) {
 				gender: req.params.gender,
 				inchMin: { [Op.lte]: req.params.measurement },
 				inchMax: { [Op.gte]: req.params.measurement }
-			}
-		    // include: [db.Logo]
+			},
+		    include: [db.Logos]
 		}).then(function(dbSizes) {
 			console.log("\nresults\n----------");
 			console.log(dbSizes);

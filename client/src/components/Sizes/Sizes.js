@@ -9,8 +9,8 @@ const Sizes = props =>
 			<ul>
 				{props.results.length ? props.results.map(item => 
                     <li className="singleItem">
-                        <img src="https://seeklogo.com/images/A/adidas-logo-9AA835C1C2-seeklogo.com.png" />
-                        <p>{item.brand}</p>
+                        <img src={item.Logo.imageUrl} />
+                        <p>{item.Logo.brand}</p>
                         <p>{item.size}</p>
                     </li>)
 				: <li>😭<br/>No Results</li>}

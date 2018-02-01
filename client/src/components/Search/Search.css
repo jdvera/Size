@@ -1,3 +1,13 @@
+.welcomeText {
+    color: white;
+    font-size: 15px;
+}
+
+.welcomeText a {
+    color: white;
+    text-decoration: underline;
+}
+
 .input {
     text-align: center;
     height: 30%;

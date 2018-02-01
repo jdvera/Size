@@ -64,6 +64,8 @@
 	overflow-y: scroll;
 	margin: auto;
 	width: 94%;
+	display: inline-block;
+	vertical-align: top;
 }
 
 .itemsContainer li {
@@ -75,11 +77,14 @@
 	border-radius: 10px;
 	padding: 40px;
 	margin: 30px;
+	vertical-align: top;
+	
 }
 
 .singleItem {
 	max-width: 100px;
-	max-height: 100px;
+	height: 150px;
+	
 }
 
 .singleItem img {

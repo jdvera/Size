@@ -19,9 +19,6 @@ module.exports = function(app, passport) {
     // console.log(res);
       passport.authenticate('local-login', function(err, user, info) {
         console.log("user-routes.sj: /loginform authenticate function");
-        console.log(err);
-        console.log(user);
-        console.log(info);
           if (err) { 
             return res.status(500).json(error);
            }
@@ -37,11 +34,16 @@ module.exports = function(app, passport) {
 
   app.post('/signupform', function(req, res, next) {
       passport.authenticate('local-signup', function(err, user, info) {
-          if (err) { return next(err); }
-          if (!user) { return res.render('/signup'); }
+      console.log("user-routes.sj: /loginform authenticate function");
+          if (err) { 
+            return res.status(500).json(error);
+           }
+          if (!user) { 
+            return res.json(info.message);
+           }
           req.logIn(user, function(err) {
               if (err) { return next(err); }
-              return res.json({detail: info});
+              return res.json("Success");
           });
       })(req, res, next);
   });

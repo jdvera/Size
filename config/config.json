@@ -2,10 +2,6 @@
   "development": {
     "username": "root",
     "password": "root",
-<<<<<<< HEAD
-    "port": 8889,
-=======
->>>>>>> Canano
     "database": "sizes_db",
     "port": 8889,
     "host": "localhost",

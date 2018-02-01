@@ -107,33 +107,33 @@ const User = db.Users;
          	console.log("user is....");
          	console.log(user.email);
 
-      	 		if (!user) {
-      	 			console.log('There is no account associated with that email.');
-					return done(null, false, {
-						message: 'There is no account associated with that email.'
-					});
-				}
-
-				console.log(user.password);
-				console.log(password);
-				//if password isn't right, alert user
-				if (!isValidPassword(user.password, password)) {
-					console.log('Incorrect password.');
-					return done(null, false, {
-						message: 'Incorrect password.'
-					});
-				}
-				
-				const userinfo = user.get();
-				console.log("passport.js - user found");
-				return done(null, userinfo);
-				//if an error is thrown, alert user
-				}).catch(function(err) {
-					console.log('Something went wrong with your login.');
-					return done(null, false, {
-						message: 'Something went wrong with your login.'
-					});
+  	 		if (!user) {
+  	 			console.log('There is no account associated with that email.');
+				return done(null, false, {
+					message: 'There is no account associated with that email.'
 				});
+			}
+
+			console.log(user.password);
+			console.log(password);
+			//if password isn't right, alert user
+			if (!isValidPassword(user.password, password)) {
+				console.log('Incorrect password.');
+				return done(null, false, {
+					message: 'Incorrect password.'
+				});
+			}
+			
+			const userinfo = user.get();
+			console.log("passport.js - user found");
+			return done(null, userinfo);
+			//if an error is thrown, alert user
+			}).catch(function(err) {
+				console.log('Something went wrong with your login.');
+				return done(null, false, {
+					message: 'Something went wrong with your login.'
+				});
+			});
      }));  // End local login
 
 } // end module export

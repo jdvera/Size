@@ -10,43 +10,40 @@ const Search = props =>
 
             <Link to={"/"}style={{ textDecoration: 'none' }}>
                 <h1 className="h1">Size</h1>
-                </Link>
+            </Link>
 
-
-            <label  for="clothingtype"> Clothing type</label>
             <select className="selection"id="clothingtype" name="clothingtype">
+                <option> Clothing Type </option>
                 <option value="shoes"> Shoes</option>
             </select>
             <br/>
-
-            <label  for="brand"> Brand (optional)</label>
-            <select className="selection" id="brand" name="brand">
-                <option> (none)</option>
-                <option value="bcbg"> BCBG </option>
-                <option value="adidas"> Adidas</option>
-                <option value="asics"> Asics</option>
-                <option value="converse"> Converse</option>
-                <option value="dcshoes"> DCShoes</option>
-                <option value="newbalance"> New Balance</option>
-                <option value="nike"> Nike</option>
-                <option value="ninewest"> Nine West</option>
-                <option value="puma"> Puma</option>
-                <option value="reebok"> Reebok</option>
-                <option value="stevemadden"> Steve Madden</option>
-                <option value="underarmor"> Under Armor</option>
-                <option value="vans"> Vans</option>
+           
+            <select className="selection" id="brand" name="brand" onChange={props.handleInputChange}>
+                <option value="">  Brand (optional)</option>
+                <option value="13"> BCBG </option>
+                <option value="3"> Adidas</option>
+                <option value="12"> Asics</option>
+                <option value="4"> Converse</option>
+                <option value="10"> DCShoes</option>
+                <option value="8"> New Balance</option>
+                <option value="2"> Nike</option>
+                <option value="1"> Nine West</option>
+                <option value="9"> Puma</option>
+                <option value="11"> Reebok</option>
+                <option value="6"> Steve Madden</option>
+                <option value="7"> Under Armor</option>
+                <option value="5"> Vans</option>
             </select>
             <br/>
 
-            <input type="radio" name="gender" value="male"/> Male
-            <input type="radio" name="gender" value="female"/> Female
+            <input type="radio" name="gender" value="male" onChange={props.handleInputChange}/> Male
+            <input type="radio" name="gender" value="female" onChange={props.handleInputChange}/> Female
             <br/>
    
-            <label  for="footlength"> Foot Length (in Inches)</label>
-            <input type="text" className="selection" id="footlength" name="footlength"/>
+            <input placeholder="Foot Length (in Inches)" type="text" className="footSize" id="footlength" name="measurement" onChange={props.handleInputChange}></input>
             <br/>
 
-            <button className="input" type="submit" onClick={this.handleSearch}>
+            <button className="searchButton" type="submit" onClick={props.handleSearch}>
                 Submit
             </button>
         </form>

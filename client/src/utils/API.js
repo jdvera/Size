@@ -49,14 +49,16 @@ export default {
 // return axios.get("/api/:clothing/:gender/:measurement/:brand");
 
 	getSizes: function(userData) {
-		console.log("getting size data for:");
+		console.log("WithBrand getting size data for:");
 		console.log(userData);
-		return axios.get("/api/sizes/" + userData.brand, userData);
+		const apiEndpoint = "/api/sizes/" + userData.gender + "/" + userData.measurement + "/" + userData.brand;
+		return axios.get(apiEndpoint);
 	},
 	getSizesWithoutBrand: function(userData) {
-		console.log("getting size data for:");
+		console.log("NoBrand getting size data for:");
 		console.log(userData);
-		return axios.get("/api/sizes", userData);
+		const apiEndpoint = "/api/sizes/" + userData.gender + "/" + userData.measurement;
+		return axios.get(apiEndpoint);
 	}
 
 

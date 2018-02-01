@@ -6,8 +6,10 @@ const NoMatch = () =>
 	<div>
 		<div className="noMatchContainer">
 	    	<h1>404</h1>
+			<img className = "parrots" src='parrots.png' alt={"sad parrots"} />
 	    	<h2>Oops!</h2> 
 	    	<h2>The page you are looking for does not exists!</h2>
+			
 		</div>
 
 		<div className="addsContainer">

@@ -1,16 +1,69 @@
+.searchBody {
+	width: 100%;
+	margin: auto;
+	margin-top: 10px;
+}
+.searchBody h1 {
+	font-size: 60px;
+	color: white;
+
+}
+
+.searchBody input {
+	
+	font-family: 'Dosis', sans-serif;
+	font-size: 20px;
+	border-radius: 10px;
+	padding: 5px;
+	border-width: 0px;
+
+}
+
+.formContainer {
+	clear:both;
+	font-family: 'Dosis', sans-serif;
+ 	width: 90%;
+ 	text-align: center;
+ 	background-color: orange;
+ 	border-radius: 10px;
+ 	top: 2%;
+ 	left: 2%;
+}
+
+.searchButton {
+	font-family: 'Dosis', sans-serif;
+	font-size: 20px;
+	color: orange;
+	padding: 5px;
+	border-radius: 10px;
+	border-width: 0px;
+	cursor: pointer;
+}
+
+.suggestBrand {
+	color: white;
+	text-decoration: underline;
+	position: fixed;
+	bottom: 5%;
+	padding: 0 11%;
+}
+
+.suggestBrand a{
+	color: white;
+	text-decoration: white;
+}
+
 .itemsContainer {
 	text-align: center;
-	width: 60%;
-	height: 94%;
 	border-style: solid;
 	border-width: 3px;
 	border-color: orange;
 	border-radius: 10px;
-	position: fixed;
 	right: 2%;
 	top: 2%;
-	padding-right: 20px;
 	overflow-y: scroll;
+	margin: auto;
+	width: 94%;
 }
 
 .itemsContainer li {
@@ -22,4 +75,14 @@
 	border-radius: 10px;
 	padding: 40px;
 	margin: 30px;
+}
+
+.singleItem {
+	max-width: 100px;
+	max-height: 100px;
+}
+
+.singleItem img {
+	max-width: 100%;
+
 }

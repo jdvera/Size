@@ -3,17 +3,46 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 import API from "../../utils/API";
 import Search from "../../components/Search";
+import Sizes from "../../components/Sizes";
+
 
 
 class Home extends Component {
+    hasSearched = false;
 
-    handleLogin = event => {
+    state = {
+        gender: "",
+        brand: "",
+        measurement: "",
+        results: []
+    };
+    
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+    };
+
+    handleSearch = event => {
         event.preventDefault();
+        this.hasSearched = true;
         
         if (this.state.brand) {
-            API.getSizes(this.state)
+            API.getSizes({
+                brand: this.state.brand,
+                gender: this.state.gender,
+                measurement: this.state.measurement
+            })
                .then(res => {
-                //figure out how to pass res to new page
+                console.log(res.data);
+                if(res.data){
+                    this.setState({ results: [res.data] });
+                }
+                else{
+                    this.setState({ results: [] });
+                }
+                console.log(this.state);
                })
                .catch(err => console.log(err));
         }
@@ -25,28 +54,23 @@ class Home extends Component {
                     }
                )
                .then(res => {
-                //figure out how to pass res to new page
+                console.log(res.data);
+                this.setState({ results:res.data });
+                console.log(this.state);
                })
                .catch(err => console.log(err));
         }
-    }
+    };
 
     render() {
         return (
             <div className="appBody">
-                <div className="navbar">
-                    <ul className="ul">
-                        <li className="left"><Link to={"/"} style={{ textDecoration: 'none' }}>
-                        <h3 className="h1">Size</h3>
-                         </Link>
-                         </li>
-                        <li className="right"><Link to={"/login"} style={{ textDecoration: 'none', color: 'orange'}}>Login</Link></li>
-                        <li className="right"><Link to={"/signup"} style={{ textDecoration: 'none', color: 'orange'}}>Sign Up</Link></li>
-                    </ul>
-                </div>
-               
-                <Search />
+                {!this.hasSearched ? (<div className="beforeSearch"><Search handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/></div>)
+
+                : (<div className="afterSearchContainer"><div className="afterSearch"><Search handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/></div><Sizes results={this.state.results}/></div>)}
+
             </div>
+            
         )
     }
 }

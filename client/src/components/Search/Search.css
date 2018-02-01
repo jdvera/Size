@@ -2,8 +2,39 @@
     text-align: center;
     height: 30%;
     font-size: 15px;
-    color:orange;
     background-color:rgba(255,255,255,0.8);
     padding:5px;  
     font-family: 'Dosis', sans-serif
+}
+
+::placeholder {
+    color: orange;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: orange;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: orange;
+}
+
+.search {
+    background-color:orange;
+    width: 90%;
+    margin:20px auto;
+    top: 50%;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 25px;
+    color:white;
+    padding:20px;  
+    font-family: 'Dosis', sans-serif;
+
+}
+
+.beforeSearch {
+    width: 90%;
+    margin: auto;
 }

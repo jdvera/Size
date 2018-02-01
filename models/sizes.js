@@ -1,12 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
   var Sizes = sequelize.define("Sizes", {
-    brand: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
-    },
     gender: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -36,6 +29,14 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
+
+  Sizes.associate = function(models) {
+    Sizes.belongsTo(models.Logos, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
 
   return Sizes;
 };

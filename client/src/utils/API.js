@@ -33,7 +33,7 @@ export default {
 
 	getLoginError: function() {
 		console.log(`getting login error`);
-		return axios.get("/loginform");
+		return axios.get("/loginerror");
 	},
 
 // here is another get request function to confirm if the user is logged in or not

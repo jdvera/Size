@@ -106,6 +106,7 @@ const User = db.Users;
       	 	} }).then(function(user) {
          	console.log("user is....");
          	console.log(user.email);
+         	console.log(user);
 
       	 		if (!user) {
       	 			console.log('There is no account associated with that email.');
@@ -129,9 +130,9 @@ const User = db.Users;
 				return done(null, userinfo);
 				//if an error is thrown, alert user
 				}).catch(function(err) {
-					console.log('Something went wrong with your login.');
+					console.log('We cannot find your account.');
 					return done(null, false, {
-						message: 'Something went wrong with your login.'
+						message: 'We cannot find your account.'
 					});
 				});
      }));  // End local login

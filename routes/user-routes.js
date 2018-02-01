@@ -18,7 +18,7 @@ module.exports = function(app, passport) {
     console.log("/loginform user route");
     // console.log(res);
       passport.authenticate('local-login', function(err, user, info) {
-        console.log("/loginform authenticate function");
+        console.log("user-routes.sj: /loginform authenticate function");
         console.log(err);
         console.log(user);
         console.log(info);
@@ -26,11 +26,11 @@ module.exports = function(app, passport) {
             return res.status(500).json(error);
            }
           if (!user) { 
-            return res.status(401).json(info.message);
+            return res.json(info.message);
            }
           req.logIn(user, function(err) {
               if (err) { return next(err); }
-              return res.redirect('/');
+              return res.json("Success");
           });
       })(req, res, next);
   });
@@ -105,9 +105,9 @@ module.exports = function(app, passport) {
     // });
 
     // send log-in errors to client side
-    // app.get('/loginform', function(req, res) {
-    //     res.send({message: req.flash('error')});
-    // });
+    app.get('/loginerror', function(req, res) {
+        res.send({message: req.flash('error')});
+    });
   // END PASSSPORT CUSTOM CALLBACK ROUTES ^^
 
   app.get('/authstatus', function(req, res) {

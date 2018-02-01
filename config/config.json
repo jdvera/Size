@@ -1,6 +1,8 @@
 {
   "development": {
     "username": "root",
+    "password": "root",
+    "root": 8889,
     "database": "sizes_db",
     "host": "localhost",
     "dialect": "mysql"

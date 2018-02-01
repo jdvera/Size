@@ -7,6 +7,9 @@ module.exports = function(app) {
 	app.get("/api/sizes/:gender/:measurement/:brand", function(req, res) {
 		console.log("included brand\n------------");
 		console.log(req.params);
+		if(req.user){
+			saveUserInfo(req.params.gender, req.params.measurement, req.params.brand);
+		}
 		db.Sizes.findOne({
 			where: {
 				gender: req.params.gender,
@@ -25,6 +28,9 @@ module.exports = function(app) {
 	app.get("/api/sizes/:gender/:measurement", function(req, res) {
 		console.log("no brand\n------------");
 		console.log(req.params);
+		if(req.user){
+			saveUserInfo(req.params.gender, req.params.measurement, null);
+		}
 		db.Sizes.findAll({
 			where: {
 				gender: req.params.gender,
@@ -38,6 +44,17 @@ module.exports = function(app) {
 			res.json(dbSizes);
 		});
 	});
+
+	var saveUserInfo = function(gender, measurement, brand) {
+		console.log("saveUserInfo funtion in sizesRoutes.js.  req.user.id below");
+		console.log(req.user.id);
+		db.Users.update(
+			{ gender: gender, measurement: measurement },
+			{ where: { id: req.user.id } }
+		).then(function(dbUsers) {
+			res.json(dbUsers);
+		});
+	}
 
 	// app.post("/api/sizes", function(req, res) {
 	// 	db.Sizes.findOne({ where: { brand: req.body.brand, size: req.body.size } }).then(function(response) {

@@ -23,15 +23,14 @@
 .search {
     background-color:orange;
     width: 90%;
-    margin:auto;
+    margin:20px auto;
     top: 50%;
     border-radius: 10px;
     text-align: center;
     font-size: 25px;
     color:white;
     padding:20px;  
-    font-family: 'Dosis', sans-serif
-
+    font-family: 'Dosis', sans-serif;
 
 }
 

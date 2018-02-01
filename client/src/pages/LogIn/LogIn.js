@@ -35,7 +35,7 @@ class LogIn extends Component {
 	      	console.log( res.status);
 	      	console.log( res.info);
 	      	// console.log( res); 
-	      	// if (res.status === 200) { this.props.history.push('/') }
+	      	if (res.status === 200) { this.props.history.push('/') }
 	      })
 	      .catch(err => console.log(err))
 	      // .catch(err => API.getLoginError()

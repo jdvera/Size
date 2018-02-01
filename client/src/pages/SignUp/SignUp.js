@@ -77,9 +77,9 @@ class SignUp extends Component {
 				        	type="submit" 
 				        	className="signUpButton">Sign Up</button>
 			        </form>
-							<Link to={"/"} style={{ textDecoration: 'none' }}>
-                        Start New Search
-                         </Link>    
+							<a href="/">
+                        Back to Search
+                         </a>
 			    </div>
 		    </div>
 		)

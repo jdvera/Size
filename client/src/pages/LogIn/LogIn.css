@@ -63,3 +63,7 @@
 .createAccount a:hover {
 	color: white;
 }
+
+.hanger {
+	max-width: 200px;
+}

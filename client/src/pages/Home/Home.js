@@ -5,8 +5,6 @@ import API from "../../utils/API";
 import Search from "../../components/Search";
 import Sizes from "../../components/Sizes";
 
-
-
 class Home extends Component {
     hasSearched = false;
 
@@ -16,24 +14,6 @@ class Home extends Component {
         measurement: "",
         results: []
     };
-    
-    // This gets called when your component is mounted
-    componentDidMount() {
-        // call the AuthStatus function to see if a user is logged in
-       console.log("running authStatus");
-       API.AuthStatus().then(res => {
-        // if res (no error), then user should exist / is logged in
-        console.log("AuthStatus is: ");
-        console.log(res);
-        // this.setState({auth: true});
-       }).catch(err => {
-        // if err (error), then user isn't logged in
-        console.log("error is: ");
-        console.log(err);
-        // this.setState({auth: false});
-       });
-    };
-
     
     handleInputChange = event => {
         const { name, value } = event.target;

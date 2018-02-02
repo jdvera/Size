@@ -22,6 +22,11 @@ export default {
 		return axios.post("/signupform", userData);
 	},
 
+	// logout
+    Logout: function() {
+        console.log("logging out user");
+        return axios.get("/logout");
+    },
 
 // ================================
 // Home search - when users first search for sizes from the homepage

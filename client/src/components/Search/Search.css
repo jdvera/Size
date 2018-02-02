@@ -32,7 +32,6 @@
 
 .search {
     background-color:orange;
-
     margin:20px auto;
     top: 50%;
     border-radius: 10px;
@@ -42,6 +41,22 @@
     padding:20px;  
     font-family: 'Dosis', sans-serif;
 
+}
+
+.search h1 {
+    font-size: 60px;
+}
+
+.search a {
+    color: #2E8B57;
+}
+
+.search a:hover {
+    color: white;
+}
+
+.radio {
+    margin: 10px;
 }
 
 .beforeSearch {

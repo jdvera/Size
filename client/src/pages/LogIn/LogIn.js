@@ -62,7 +62,9 @@ class LogIn extends Component {
 			    <div className="logInContainer">
 					<Link to={"/"}style={{ textDecoration: 'none' }}>
                 <h1 className="h1">Size</h1>
-                </Link>     
+                </Link>
+								<div className="logo">
+								<img className = "parrots" src='hanger4.png' alt={"hanger"} />     </div>
 			        <form>
 			        	<input 
 			        		value={this.state.email}

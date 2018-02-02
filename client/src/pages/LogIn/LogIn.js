@@ -85,12 +85,13 @@ class LogIn extends Component {
 			        		className="logInButton">
 			        			Log In
 	        			</button>
-			        </form>
+			        
 			        <div className="errorMessage">{this.state.error}</div>
 			        <div className="createAccount">
 			        	<p>Don't have an account yet?</p>
 			        	<a href="/signup">Sign Up!</a>
 			        </div>
+					</form>
 			    </div>
 	    	</div>
 		)

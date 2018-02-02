@@ -1774,8 +1774,8 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
     strip-json-comments "~2.0.1"
 
 react-media@^1.6.1:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/react-media/-/react-media-1.7.0.tgz#dc1d1aac4a72aed4fb69a97c7b5dcc21520fc2c5"
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/react-media/-/react-media-1.6.1.tgz#84e7986a92356b106dca026363f8f5c88054fe72"
   dependencies:
     json2mq "^0.2.0"
     prop-types "^15.5.10"

@@ -3,6 +3,9 @@ import "./Search.css";
 import { Link } from "react-router-dom";
 
 
+
+
+
 const Search = props =>
 	<div className="search">
     

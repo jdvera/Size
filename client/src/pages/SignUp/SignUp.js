@@ -108,11 +108,12 @@ class SignUp extends Component {
 				        	onClick={this.handleSignUp}
 				        	type="submit" 
 				        	className="signUpButton">Sign Up</button>
-			        </form>
+			        
 			        <div className="errorMessage">{this.state.error}</div>
 							<a href="/">
                         Back to Search
                          </a>
+						 </form>
 			    </div>
 		    </div>
 		)

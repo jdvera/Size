@@ -62,7 +62,8 @@ class LogIn extends Component {
 			    <div className="logInContainer">
 					<Link to={"/"}style={{ textDecoration: 'none' }}>
                 <h1 className="h1">Size</h1>
-                </Link>     
+                </Link>
+								<img className = "hanger" src='hanger4.png' alt={"hanger"} />
 			        <form>
 			        	<input 
 			        		value={this.state.email}
@@ -85,12 +86,13 @@ class LogIn extends Component {
 			        		className="logInButton">
 			        			Log In
 	        			</button>
-			        </form>
+			        
 			        <div className="errorMessage">{this.state.error}</div>
 			        <div className="createAccount">
 			        	<p>Don't have an account yet?</p>
 			        	<a href="/signup">Sign Up!</a>
 			        </div>
+					</form>
 			    </div>
 	    	</div>
 		)

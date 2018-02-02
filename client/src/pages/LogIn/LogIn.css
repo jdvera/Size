@@ -1,3 +1,7 @@
+.logInBody {
+	margin-top: 10px;
+}
+
 .logInBody h1 {
 	font-size: 60px;
 	color: white;
@@ -16,12 +20,22 @@
 
 .logInContainer {
 	font-family: 'Dosis', sans-serif;
- 	width: 30%;
- 	height: 750px;
+ 	width: 60%;
+	height: auto;
+	min-width: 300px;
  	text-align: center;
  	background-color: orange;
  	border-radius: 10px;
 	margin: auto;
+	padding: 10px;
+}
+
+.logInContainer form input {
+	margin: 10px;
+}
+.errorMessage {
+	margin-top: 10px;
+	color: white;
 }
 
 .logInButton {
@@ -35,14 +49,21 @@
 }
 
 .createAccount {
-	color: white;
+	color: black;
 	margin: auto;
 	width: 50%;
-	position: relative;
-	top: 400px;
+	font-size: 15px;
 }
 
 .createAccount a {
-	color: white;
+	color: #2E8B57;
 	text-decoration: underline;
+}
+
+.createAccount a:hover {
+	color: white;
+}
+
+.hanger {
+	max-width: 200px;
 }

@@ -10,6 +10,9 @@ const Search = props =>
             <Link to={"/"}style={{ textDecoration: 'none' }}>
                 <h1 className="h1">Size</h1>
             </Link>
+            <div className="logo">
+                <img className = "hanger" src='hanger4.png' alt={"hanger"} />
+            </div>
 
             <select className="selection"id="clothingtype" name="clothingtype">
                 <option> Clothing Type </option>
@@ -35,8 +38,8 @@ const Search = props =>
             </select>
             <br/>
 
-            <input type="radio" name="gender" value="male" onChange={props.handleInputChange}/> Male
-            <input type="radio" name="gender" value="female" onChange={props.handleInputChange}/> Female
+            <input className = "radio" type="radio" name="gender" value="male" onChange={props.handleInputChange}/> Male
+            <input className = "radio" type="radio" name="gender" value="female" onChange={props.handleInputChange}/> Female
             <br/>
    
             <input placeholder="Foot Length (in Inches)" type="text" className="footSize" id="footlength" name="measurement" onChange={props.handleInputChange}></input>

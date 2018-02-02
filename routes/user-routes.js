@@ -3,8 +3,6 @@ var path = require("path");
 var db = require('../models');
 const router = require("express").Router();
 
-
-
 // Routes
 // =============================================================
 module.exports = function(app, passport) {

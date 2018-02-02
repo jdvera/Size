@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import "./Search.css";
 import { Link } from "react-router-dom";
-
-
-
-
+import SignIn_SignOut from "../SignIn_SignOut";
 
 const Search = props =>
 	<div className="search">
@@ -48,7 +45,8 @@ const Search = props =>
             <button className="searchButton" type="submit" onClick={props.handleSearch}>
                 Submit
             </button>
-            <p className="welcomeText">Welcome back, <a href="/login">Sign In</a>.</p>
+            <SignIn_SignOut />
+            {/*<p className="welcomeText">Welcome back, <a href="/login">Sign In</a>.</p>*/}
 
         </form>
     </div>

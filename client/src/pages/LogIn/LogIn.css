@@ -38,6 +38,8 @@
 	color: white;
 	margin: auto;
 	width: 50%;
+	position: relative;
+	top: 400px;
 }
 
 .createAccount a {

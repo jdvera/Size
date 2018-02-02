@@ -1,0 +1,13 @@
+.noUser {
+	margin-top: 15px;
+	font-size: 15px;
+}
+
+.yesUser {
+	margin-top: 15px;
+	font-size: 15px;
+}
+
+.noUser a, .yesUser a {
+	color: #2E8B57;
+}

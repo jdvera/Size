@@ -32,7 +32,6 @@
 
 .search {
     background-color:orange;
-    width: 90%;
     margin:20px auto;
     top: 50%;
     border-radius: 10px;
@@ -44,7 +43,28 @@
 
 }
 
+.search h1 {
+    font-size: 60px;
+}
+
+.search a {
+    color: #2E8B57;
+}
+
+.search a:hover {
+    color: white;
+}
+
+.radio {
+    margin: 10px;
+}
+
 .beforeSearch {
     width: 90%;
+    margin: auto;
+}
+
+.logo {
+    width: 200px;
     margin: auto;
 }

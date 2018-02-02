@@ -4,6 +4,10 @@
 	overflow-x: hidden;
 }
 
+.signUpBody {
+	margin-top: 20px;
+}
+
 .signUpBody input {
 	font-family: 'Dosis', sans-serif;
 	font-size: 20px;
@@ -16,12 +20,14 @@
 
 .signUpContainer {
 	font-family: 'Dosis', sans-serif;
- 	width: 30%;
- 	height: 750px;
+	 width: 60%;
+	 min-width: 300px;
+ 	height: auto;
  	text-align: center;
  	background-color: orange;
  	border-radius: 10px;
 	margin: auto;
+	padding: 10px;
 }
 
 .signUpButton {
@@ -35,10 +41,16 @@
 }
 
 .signUpContainer a {
-	color: white;
+	color: #2E8B57;
 	text-decoration: white underline;
-	position: relative;
-	top: 400px;
 	margin: auto;
 
+}
+
+.signUpContainer form input {
+	margin: 10px;
+}
+
+.signUpContainer a:hover {
+	color: white;
 }

@@ -8,7 +8,8 @@ class SignUp extends Component {
 	state = {
 	  email: "",
 	  password: "",
-	  verifyPassword: ""
+	  verifyPassword: "",
+	  error: ""
 	};
 
 	handleInputChange = event => {
@@ -18,28 +19,59 @@ class SignUp extends Component {
 	  });
 	};
 
+	// when a user submits the signup form
 	handleSignUp = event => {
-	  event.preventDefault();
-	  if (this.state.email && this.state.password && this.state.verifyPassword) {
+		// prevent page from refreshing
+	 	event.preventDefault();
+	 	// verify that all fields have been filled in
+	 	if (this.state.email && this.state.password && this.state.verifyPassword) {
+	  		this.verifyPasswords();
+		};
+	};
+
+	// verify that the password fields match
+	verifyPasswords = () => {
+		if (this.state.password !== this.state.verifyPassword) {
+			this.setState({
+				error: "Your passwords don't match."
+			});
+			return;
+		} else {
+			this.signup();
+		}
+	};
+
+	// submit request to create user
+	signup = () => {
 	  	console.log("SignUp.js says: "+ this.state.email + " " + this.state.password);
 	    API.Signup(
-	    		{
-    		  		email: this.state.email,
-    		  		password: this.state.password
-	    		}
-	    	)
-	      .then(res => {
-	      	console.log("res is: "); 
-	      	console.log( res.status);
-	      	console.log( res); 
-	      	if (res.status === 200) { this.props.history.push('/') }
-	      })
-	      .catch(
-	      	err => API.getSignupError()
-	      	.then(res => {console.log("res is: "); console.log( res); })
-	      	.catch(err => console.log(err))
-	      );
-	  }
+    		{
+		  		email: this.state.email,
+		  		password: this.state.password
+    		}
+    	)
+       .then(res => this.signupResponse(res))
+       .catch(err => console.log(err))
+	};		
+
+	// upon receiving response from Signup post request
+	signupResponse = res => {
+		// if login is successful
+		if (res.data === "Success") { 
+			// redirect to home page
+			this.props.history.push('/')
+		} 
+		// if login is not successful
+		else {
+			// display reason message
+			console.log(res.data);
+			this.setState({
+				email: "",
+				password: "",
+				verifyPassword: "",
+				error: res.data
+			});
+		}
 	};
 
 	render() {
@@ -76,10 +108,12 @@ class SignUp extends Component {
 				        	onClick={this.handleSignUp}
 				        	type="submit" 
 				        	className="signUpButton">Sign Up</button>
-			        </form>
-							<Link to={"/"} style={{ textDecoration: 'none' }}>
-                        Start New Search
-                         </Link>    
+			        
+			        <div className="errorMessage">{this.state.error}</div>
+							<a href="/">
+                        Back to Search
+                         </a>
+						 </form>
 			    </div>
 		    </div>
 		)

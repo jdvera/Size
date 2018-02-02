@@ -5,8 +5,6 @@ import API from "../../utils/API";
 import Search from "../../components/Search";
 import Sizes from "../../components/Sizes";
 
-
-
 class Home extends Component {
     hasSearched = false;
 

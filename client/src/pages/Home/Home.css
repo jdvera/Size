@@ -19,7 +19,7 @@
     font-family: 'Dosis', sans-serif
 }
 
-.ul {
+/*.ul {
     color:orange;
     list-style-type: none;
     margin: 0;
@@ -27,25 +27,25 @@
     overflow: hidden;
     background-color:white;
 
-}
+}*/
 
-.left {
+/*.left {
     float: left;
     display: block;
     text-decoration: none;
     padding-left:14px;
     text-align: center;
     padding-bottom:0px;
-}
+}*/
 
-.right {
+/*.right {
     color: orange;
     float:right;
     display: block;
     padding: 10px;
     text-decoration: none;
     font-family: 'Dosis', sans-serif
-}
+}*/
 
 
 .h1 {
@@ -107,10 +107,6 @@
     width: 100%;
     height: 95%;
     text-align: center;
-
-   
-}
-
-.afterSearch{
     display:inline-block;
 }
+

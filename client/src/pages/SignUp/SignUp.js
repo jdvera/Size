@@ -79,7 +79,7 @@ class SignUp extends Component {
 			<div className="signUpBody">
 		    	<div className="signUpContainer">
 		    		<h1>Size</h1>
-					<Link to={"/"}style={{ textDecoration: 'none' }}>
+					<Link to={"/"} style={{ textDecoration: 'none' }}>
                 </Link>           
 			        <form action="signupform" method="post">
 			        	<input 
@@ -108,12 +108,11 @@ class SignUp extends Component {
 				        	onClick={this.handleSignUp}
 				        	type="submit" 
 				        	className="signUpButton">Sign Up</button>
-			        
+			        </form>
 			        <div className="errorMessage">{this.state.error}</div>
 							<a href="/">
                         Back to Search
                          </a>
-						 </form>
 			    </div>
 		    </div>
 		)

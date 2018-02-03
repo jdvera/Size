@@ -17,7 +17,19 @@ module.exports = function(sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
-    },   
+    },
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: true
+    }, 
+    clothing_type: {
+      type: DataTypes.STRING,
+      allowNull: true
+    }, 
+    measurement: {
+      type: DataTypes.FLOAT,
+      allowNull: true
+    },    
     last_login: {
         type: DataTypes.DATE
     },
@@ -29,3 +41,4 @@ module.exports = function(sequelize, DataTypes) {
 
   return Users;
 };
+

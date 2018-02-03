@@ -6,7 +6,7 @@ module.exports = function(app) {
 
 	app.get("/api/sizes/:gender/:measurement/:brand", function(req, res) {
 		console.log("included brand\n------------");
-		console.log(req.params);
+		console.log(req.params);		
 		db.Sizes.findOne({
 			where: {
 				gender: req.params.gender,
@@ -17,7 +17,7 @@ module.exports = function(app) {
 		    include: [db.Logos]
 		}).then(function(dbSizes) {
 			console.log("\nresults\n----------");
-			console.log(dbSizes);
+			// console.log(dbSizes);
 			res.json(dbSizes);
 		});
 	});
@@ -34,7 +34,7 @@ module.exports = function(app) {
 		    include: [db.Logos]
 		}).then(function(dbSizes) {
 			console.log("\nresults\n----------");
-			console.log(dbSizes);
+			// console.log(dbSizes);
 			res.json(dbSizes);
 		});
 	});
@@ -51,4 +51,5 @@ module.exports = function(app) {
 	// 		}
 	// 	});
 	// });
+
 };

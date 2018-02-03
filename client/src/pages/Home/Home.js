@@ -25,6 +25,8 @@ class Home extends Component {
     handleSearch = event => {
         event.preventDefault();
         this.hasSearched = true;
+
+        this.saveSize();
         
         if (this.state.brand) {
             API.getSizes({
@@ -58,6 +60,16 @@ class Home extends Component {
                })
                .catch(err => console.log(err));
         }
+    };
+
+    saveSize = event => {
+        API.saveUserSize({
+            gender: this.state.gender,
+            clothing_type: "shoes",
+            measurement: this.state.measurement
+        }).then(res => {
+            console.log(res);
+        }).catch(err => console.log(err));
     };
 
     render() {

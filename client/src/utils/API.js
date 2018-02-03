@@ -42,6 +42,10 @@ export default {
 		console.log(userData);
 		const apiEndpoint = "/api/sizes/" + userData.gender + "/" + userData.measurement;
 		return axios.get(apiEndpoint);
+	},
+	saveUserSize: function(userData) {
+		console.log("utils/API.js running saveUserSize");
+		return axios.put("/api/user-size/", userData);
 	}
 
 }

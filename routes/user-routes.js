@@ -7,6 +7,32 @@ const router = require("express").Router();
 // =============================================================
 module.exports = function(app, passport) {
 
+  // Save user size info
+  app.put("/api/user-size/", function(req, res) {
+    // if a user exists / is logged in
+    if (req.user.id) {
+    // save their "true" size to their user profile
+      console.log("sizesRoutes app.put, found user: " + req.user.id);
+      db.Users.update(
+        {
+          gender: req.body.gender, 
+          clothing_type: req.body.clothing_type,
+          measurement: req.body.measurement
+        },
+        {
+          where: {
+            id: req.user.id
+          }
+        }).then(function(dbUsers){
+          console.log("User info updated");
+          console.log(dbUsers);
+          res.json(dbUsers);
+        }).catch(function(err) {
+          console.log(err);
+        })
+    };
+  });
+
 // Authentication Routes ==================
 // ========================================
 
@@ -52,11 +78,11 @@ module.exports = function(app, passport) {
     console.log("user-routes.js: running /authstatus");
     if (req.user) {
       console.log("user is loged in!");
-      console.log(req.user);
+      // console.log(req.user);
       res.send(true);
     } else {
       console.log("user is loged in!");
-      console.log(req.user);
+      // console.log(req.user);
       res.send(false);
     }
   });

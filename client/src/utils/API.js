@@ -28,6 +28,12 @@ export default {
         return axios.get("/logout");
     },
 
+    // If user logged in, we check for any sizes they have on file
+    getSaved: function() {
+    	console.log("utils/API getting saved data.");
+    	return axios.get("/api/profile");
+    },
+
 // ================================
 // Home search - when users first search for sizes from the homepage
 
@@ -55,6 +61,6 @@ export default {
 		console.log(userData);
 		const apiEndpoint = "/api/dresses/" + userData.bust + "/" + userData.waist + "/" + userData.hips;
 		return axios.get(apiEndpoint);
-	}
+	}	
 
 }

@@ -6,14 +6,35 @@ import Search from "../../components/Search";
 import Sizes from "../../components/Sizes";
 
 class Home extends Component {
-    hasSearched = false;
 
     state = {
         type: "",
         gender: "",
         brand: "",
         measurement: "",
-        results: []
+        results: [],
+        hasSearched: false,
+        dataOnFile: false
+    };
+
+    // get any saved user data
+    componentDidMount() {
+       API.getSaved()
+        .then(res => {
+            console.log("Home.js getting saved");
+            console.log(res)
+            if(res.data){
+                console.log("Home.js found user");
+                console.log(res.data)
+                this.setState({
+                    results: res.data,
+                    dataOnFile: true
+                });
+                
+                console.log(this.state);
+            }
+        })
+        .catch(err => console.log(err))
     };
     
     handleInputChange = event => {
@@ -21,6 +42,7 @@ class Home extends Component {
         this.setState({
             [name]: value
         });
+        console.log(this.state);
     };
 
     handleSearch = event => {
@@ -77,18 +99,17 @@ class Home extends Component {
         }
     };
 
-    render() {
+    render(){
+        const noSearch = !this.state.hasSearched;
+        const hasData = this.state.dataOnFile;
         return (
-            <div className="appBody">
-
-            
-                {!this.hasSearched ? (<div className="beforeSearch"><Search handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/></div>)
-
-                : (<div className="afterSearchContainer"><div className="afterSearch"><Search handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/></div><Sizes results={this.state.results}/></div>)}
-
+            <div className={(noSearch) ? "" : "afterSearchConatiner"}>
+                <div className={(noSearch) ? "beforeSearch" : "afterSearch"}>
+                    <Search type={this.state.type} handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/>
+                </div>               
+                {(!noSearch ? <Sizes results={this.state.results}/> : "")}
             </div>
-            
-        )
+        );
     }
 }
 

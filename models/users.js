@@ -26,7 +26,10 @@ module.exports = function(sequelize, DataTypes) {
         defaultValue: 'active'
     },
     gender: DataTypes.STRING,
-    measurement: DataTypes.FLOAT
+    shoe: DataTypes.FLOAT,
+    bust: DataTypes.FLOAT,
+    waist: DataTypes.FLOAT,
+    hips: DataTypes.FLOAT
   });
 
   return Users;

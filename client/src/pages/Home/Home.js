@@ -46,38 +46,56 @@ class Home extends Component {
     };
 
     handleSearch = event => {
-        event.preventDefault();        
-        if (this.state.brand) {
-            API.getSizes({
-                brand: this.state.brand,
-                gender: this.state.gender,
-                measurement: this.state.measurement
-            })
-               .then(res => {
-                console.log(res.data);
-                if(res.data){
-                    this.setState({ results: [res.data], hasSearched: true });
-                }
-                else{
-                    this.setState({ results: [], hasSearched: true });
-                }
-                console.log(this.state);
-               })
-               .catch(err => console.log(err));
+        event.preventDefault();
+        this.hasSearched = true;
+        
+        if (this.state.type == "shoes") {
+            if (this.state.brand) {
+                API.getShoes({
+                    brand: this.state.brand,
+                    gender: this.state.gender,
+                    measurement: this.state.measurement
+                }).then(res => {
+                    console.log(res.data);
+                    this.setState({ results: res.data });
+                    console.log(this.state);
+                }).catch(err => console.log(err));
+            }
+            else {
+                API.getShoesWithoutBrand({
+                    gender: this.state.gender,
+                    measurement: this.state.measurement
+                }).then(res => {
+                    console.log(res.data);
+                    this.setState({ results: res.data });
+                    console.log(this.state);
+                }).catch(err => console.log(err));
+            }
         }
-        else {
-            API.getSizesWithoutBrand(
-                    {
-                        gender: this.state.gender,
-                        measurement: this.state.measurement
-                    }
-               )
-               .then(res => {
-                console.log(res.data);
-                this.setState({ results:res.data, hasSearched: true });
-                console.log(this.state);
-               })
-               .catch(err => console.log(err));
+        else if (this.state.type == "dresses") {
+            if (this.state.brand) {
+                API.getDresses({
+                    brand: this.state.brand,
+                    bust: this.state.bust,
+                    waist: this.state.waist,
+                    hips: this.state.hips
+                }).then(res => {
+                    console.log(res.data);
+                    this.setState({ results: res.data });
+                    console.log(this.state);
+                }).catch(err => console.log(err));
+            }
+            else {
+                API.getDressesWithoutBrand({
+                    bust: this.state.bust,
+                    waist: this.state.waist,
+                    hips: this.state.hips
+                }).then(res => {
+                    console.log(res.data);
+                    this.setState({ results: res.data });
+                    console.log(this.state);
+                }).catch(err => console.log(err));
+            }
         }
     };
 
@@ -87,7 +105,7 @@ class Home extends Component {
         return (
             <div className={(noSearch) ? "" : "afterSearchConatiner"}>
                 <div className={(noSearch) ? "beforeSearch" : "afterSearch"}>
-                    <Search type={this.state.type} handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/>
+                    <Search type={this.state.type} handleSearch={this.handleSearch} handleInputChange={this.handleInputChange} />
                 </div>               
                 {(!noSearch ? <Sizes results={this.state.results}/> : "")}
             </div>

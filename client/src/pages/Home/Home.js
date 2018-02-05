@@ -105,7 +105,7 @@ class Home extends Component {
         return (
             <div className={(noSearch) ? "" : "afterSearchConatiner"}>
                 <div className={(noSearch) ? "beforeSearch" : "afterSearch"}>
-                    <Search type={this.state.type} handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/>
+                    <Search type={this.state.type} handleSearch={this.handleSearch} handleInputChange={this.handleInputChange} />
                 </div>               
                 {(!noSearch ? <Sizes results={this.state.results}/> : "")}
             </div>

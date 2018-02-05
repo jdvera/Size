@@ -12,6 +12,7 @@ const Search = props =>
             <Link to={"/"}style={{ textDecoration: 'none' }}>
                 <h1 className="h1">Size</h1>
             </Link>
+
             <div className="logo">
                 <img className = "hanger" src='hanger4.png' alt={"hanger"} />
             </div>
@@ -23,7 +24,7 @@ const Search = props =>
             </select>
             <br/>
            
-            { props.type == "dresses" ? <DressSearch /> : <ShoeSearch />}
+            { props.type == "dresses" ? <DressSearch handleInputChange={this.handleInputChange} /> : <ShoeSearch handleInputChange={this.handleInputChange} />}
 
             <button className="searchButton" type="submit" onClick={props.handleSearch}>
                 Submit

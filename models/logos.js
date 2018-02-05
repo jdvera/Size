@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    imageUrl: {
+    fileLocation: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -17,7 +17,8 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Logos.associate = function(models) {
-    Logos.hasMany(models.Sizes);
+    Logos.hasMany(models.Shoes);
+    Logos.hasMany(models.Dresses);
   };
 
   return Logos;

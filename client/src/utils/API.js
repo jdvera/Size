@@ -31,16 +31,29 @@ export default {
 // ================================
 // Home search - when users first search for sizes from the homepage
 
-	getSizes: function(userData) {
-		console.log("WithBrand getting size data for:");
+	getShoes: function(userData) {
+		console.log("WithBrand getting shoes data for:");
 		console.log(userData);
-		const apiEndpoint = "/api/sizes/" + userData.gender + "/" + userData.measurement + "/" + userData.brand;
+		const apiEndpoint = "/api/shoes/" + userData.gender + "/" + userData.measurement + "/" + userData.brand;
 		return axios.get(apiEndpoint);
 	},
-	getSizesWithoutBrand: function(userData) {
-		console.log("NoBrand getting size data for:");
+	getShoesWithoutBrand: function(userData) {
+		console.log("NoBrand getting shoes data for:");
 		console.log(userData);
-		const apiEndpoint = "/api/sizes/" + userData.gender + "/" + userData.measurement;
+		const apiEndpoint = "/api/shoes/" + userData.gender + "/" + userData.measurement;
+		return axios.get(apiEndpoint);
+	},
+
+	getDresses: function(userData) {
+		console.log("WithBrand getting dress data for:");
+		console.log(userData);
+		const apiEndpoint = "/api/dresses/" + userData.bust + "/" + userData.waist + "/" + userData.hips + "/" + userData.brand;
+		return axios.get(apiEndpoint);
+	},
+	getDressesWithoutBrand: function(userData) {
+		console.log("NoBrand getting dress data for:");
+		console.log(userData);
+		const apiEndpoint = "/api/dresses/" + userData.bust + "/" + userData.waist + "/" + userData.hips;
 		return axios.get(apiEndpoint);
 	}
 

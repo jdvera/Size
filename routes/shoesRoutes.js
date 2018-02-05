@@ -4,36 +4,36 @@ var Sequelize = require('sequelize');
 module.exports = function(app) {
 	var Op = Sequelize.Op;
 
-	app.get("/api/sizes/:gender/:measurement/:brand", function(req, res) {
-		console.log("included brand\n------------");
+	app.get("/api/shoes/:gender/:measurement/:brand", function(req, res) {
+		console.log("Shoes, included brand\n------------");
 		console.log(req.params);
 		var userObj = checkUser(req, req.params.gender, req.params.measurement);
-		db.Sizes.findOne({
+		db.Shoes.findOne({
 			where: {
 				gender: req.params.gender,
-				inchMin: { [Op.lte]: req.params.measurement},
-				inchMax: { [Op.gte]: req.params.measurement },
+				shoeMin: { [Op.lt]: req.params.measurement },
+				shoeMax: { [Op.gte]: req.params.measurement },
 				LogoId: req.params.brand
 			},
 		    include: [db.Logos]
-		}).then(function(dbSizes) {
-			res.json(dbSizes);
+		}).then(function(dbShoes) {
+			res.json(dbShoes);
 		});
 	});
 
-	app.get("/api/sizes/:gender/:measurement", function(req, res) {
-		console.log("no brand\n------------");
+	app.get("/api/shoes/:gender/:measurement", function(req, res) {
+		console.log("Shoes, no brand\n------------");
 		console.log(req.params);
-		checkUser(req, req.params.gender, req.params.measurement);
-		db.Sizes.findAll({
+		var userObj = checkUser(req, req.params.gender, req.params.measurement);
+		db.Shoes.findAll({
 			where: {
 				gender: req.params.gender,
-				inchMin: { [Op.lte]: req.params.measurement },
-				inchMax: { [Op.gte]: req.params.measurement }
+				shoeMin: { [Op.lt]: req.params.measurement },
+				shoeMax: { [Op.gte]: req.params.measurement }
 			},
 		    include: [db.Logos]
-		}).then(function(dbSizes) {
-			res.json(dbSizes);
+		}).then(function(dbShoes) {
+			res.json(dbShoes);
 		});
 	});
 
@@ -51,10 +51,10 @@ module.exports = function(app) {
 	}
 
 	// app.post("/api/sizes", function(req, res) {
-	// 	db.Sizes.findOne({ where: { brand: req.body.brand, size: req.body.size } }).then(function(response) {
+	// 	db.Shoes.findOne({ where: { brand: req.body.brand, size: req.body.size } }).then(function(response) {
 	// 		if(!user) {
-	// 			db.Sizes.create(req.body).then(function(dbSizes) {
-	// 				res.json(dbSizes);
+	// 			db.Shoes.create(req.body).then(function(dbShoes) {
+	// 				res.json(dbShoes);
 	// 			});
 	// 		}
 	// 		else {

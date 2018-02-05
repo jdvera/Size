@@ -7,6 +7,7 @@ module.exports = function(app) {
 	app.get("/api/sizes/:gender/:measurement/:brand", function(req, res) {
 		console.log("included brand\n------------");
 		console.log(req.params);
+		var userObj = checkUser(req, req.params.gender, req.params.measurement);
 		db.Sizes.findOne({
 			where: {
 				gender: req.params.gender,
@@ -16,8 +17,6 @@ module.exports = function(app) {
 			},
 		    include: [db.Logos]
 		}).then(function(dbSizes) {
-			console.log("\nresults\n----------");
-			console.log(dbSizes);
 			res.json(dbSizes);
 		});
 	});
@@ -25,6 +24,7 @@ module.exports = function(app) {
 	app.get("/api/sizes/:gender/:measurement", function(req, res) {
 		console.log("no brand\n------------");
 		console.log(req.params);
+		checkUser(req, req.params.gender, req.params.measurement);
 		db.Sizes.findAll({
 			where: {
 				gender: req.params.gender,
@@ -33,11 +33,22 @@ module.exports = function(app) {
 			},
 		    include: [db.Logos]
 		}).then(function(dbSizes) {
-			console.log("\nresults\n----------");
-			console.log(dbSizes);
 			res.json(dbSizes);
 		});
 	});
+
+	var checkUser = function(req, gender, measurement) {
+		if(req.user){
+			db.Users.update(
+				{ gender: gender, measurement: measurement },
+				{ where: { id: req.user.id } }
+			).then(function(dbUsers) {
+				console.log("dbUsers below");
+				console.log(dbUsers);
+				return dbUsers;
+			});
+		}
+	}
 
 	// app.post("/api/sizes", function(req, res) {
 	// 	db.Sizes.findOne({ where: { brand: req.body.brand, size: req.body.size } }).then(function(response) {

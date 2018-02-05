@@ -51,11 +51,11 @@ module.exports = function(app, passport) {
   app.get('/authstatus', function(req, res) {
     console.log("user-routes.js: running /authstatus");
     if (req.user) {
-      console.log("user is loged in!");
+      console.log("user is logged in!");
       console.log(req.user);
       res.send(true);
     } else {
-      console.log("user is loged in!");
+      console.log("user doesn't exist!");
       console.log(req.user);
       res.send(false);
     }

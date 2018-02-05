@@ -24,7 +24,9 @@ module.exports = function(sequelize, DataTypes) {
     status: {
         type: DataTypes.ENUM('active', 'inactive'),
         defaultValue: 'active'
-    }
+    },
+    gender: DataTypes.STRING,
+    measurement: DataTypes.FLOAT
   });
 
   return Users;

@@ -108,13 +108,12 @@ const User = db.Users;
          	console.log(user.email);
          	console.log(user);
 
-      	 		if (!user) {
-      	 			console.log('There is no account associated with that email.');
-					return done(null, false, {
-						message: 'There is no account associated with that email.'
-					});
-				}
-
+  	 		if (!user) {
+  	 			console.log('There is no account associated with that email.');
+				return done(null, false, {
+					message: 'There is no account associated with that email.'
+				});
+			}
 				console.log(user.password);
 				console.log(password);
 				//if password isn't right, alert user
@@ -134,7 +133,7 @@ const User = db.Users;
 					return done(null, false, {
 						message: 'We cannot find your account.'
 					});
-				});
+			});
      }));  // End local login
 
 } // end module export

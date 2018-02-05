@@ -7,6 +7,7 @@ import Sizes from "../../components/Sizes";
 
 class Home extends Component {
     hasSearched = false;
+    dataOnFile = false;
 
     state = {
         gender: "",
@@ -24,8 +25,12 @@ class Home extends Component {
             if(res.data){
                 console.log("Home.js found user");
                 console.log(res.data)
-                // this.hasSearched = true;
-                this.setState({ results: [res.data] });
+                this.dataOnFile = true;
+                this.setState({
+                    results: res.data
+                });
+                
+                console.log(this.state);
             }
         })
         .catch(err => console.log(err))
@@ -79,9 +84,10 @@ class Home extends Component {
     render() {
         return (
             <div className="appBody">
-                {!this.hasSearched ? (<div className="beforeSearch"><Search handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/></div>)
 
-                : (<div className="afterSearchContainer"><div className="afterSearch"><Search handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/></div><Sizes results={this.state.results}/></div>)}
+                { (!this.hasSearched && !this.dataOnFile )? (<div className="beforeSearch"><Search handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/></div>)
+
+                : ( (!this.hasSearched && this.dataOnFile) ? (<div className="afterSearchContainer"><div className="afterSearch"><Search handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/></div><Sizes results={this.state.results}/></div>) : (<div className="afterSearchContainer"><div className="afterSearch"><Search handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/></div><Sizes results={this.state.results}/></div>) ) }
 
             </div>
             

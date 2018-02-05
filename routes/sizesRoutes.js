@@ -48,7 +48,32 @@ module.exports = function(app) {
 				return dbUsers;
 			});
 		}
-	}
+	};
+
+	app.get("/api/profile", function(req, res) {
+		console.log("sizeRoutes.js getting profile data");
+		// if user logged in
+		if (req.user) {
+			console.log(req.user.dataValues.gender);
+		 	db.Sizes.findAll({
+		  			where: {
+		  				gender: req.user.dataValues.gender,
+		  				inchMin: { [Op.lte]: req.user.dataValues.measurement },
+		  				inchMax: { [Op.gte]: req.user.dataValues.measurement }
+		  			},
+		  		    include: [db.Logos]
+		  		}).then(function(dbSizes) {
+					res.json(dbSizes); 
+				})
+	 	} else {
+			console.log("user doesn't exist!");
+			console.log(req.user);
+			res.send(false);
+		}	
+	});
+
+
+
 
 	// app.post("/api/sizes", function(req, res) {
 	// 	db.Sizes.findOne({ where: { brand: req.body.brand, size: req.body.size } }).then(function(response) {

@@ -14,6 +14,22 @@ class Home extends Component {
         measurement: "",
         results: []
     };
+
+    // get any saved user data
+    componentDidMount() {
+       API.getSaved()
+        .then(res => {
+            console.log("Home.js getting saved");
+            console.log(res)
+            if(res.data){
+                console.log("Home.js found user");
+                console.log(res.data)
+                // this.hasSearched = true;
+                this.setState({ results: [res.data] });
+            }
+        })
+        .catch(err => console.log(err))
+    };
     
     handleInputChange = event => {
         const { name, value } = event.target;

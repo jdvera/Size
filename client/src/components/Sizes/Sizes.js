@@ -10,7 +10,7 @@ const Sizes = props =>
 				{props.results.length ? props.results.map(item => 
                     <div className="singleItem">
                         <img src={item.Logo.imageUrl} />
-                        <p>{item.Logo.brand}</p>
+                        <p>{item.Logo.logoId}</p>
                         <p>{item.size}</p>
                     </div>)
 				: <div>😭<br/>No Results</div>}

@@ -9,8 +9,8 @@ const Sizes = props =>
 			<div className="jamesDiv">
 				{props.results.length ? props.results.map(item => 
                     <div className="singleItem">
-                        <img src={item.Logo.imageUrl} />
-                        <p>{item.Logo.logoId}</p>
+                        <img alt="Brand Logo" src={item.Logo.fileLocation} />
+                        <p>{item.Logo.brand}</p>
                         <p>{item.size}</p>
                     </div>)
 				: <div>😭<br/>No Results</div>}

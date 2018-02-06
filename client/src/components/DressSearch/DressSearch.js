@@ -17,12 +17,11 @@ const DressSearch = props =>
         </select>
         <br/>
 
-        <input placeholder="Chest Width (in Inches)" type="text" className="footSize" id="chestWidth" name="chestWidth" onChange={props.handleInputChange}></input>
-        <br/>
-        <input placeholder="Waist Width (in Inches)" type="text" className="footSize" id="waistWidth" name="waistWidth" onChange={props.handleInputChange}></input>
-        <br/>
-        <input placeholder="Hip Width (in Inches)" type="text" className="footSize" id="hipWidth" name="hipWidth" onChange={props.handleInputChange}></input>
-
+        <input placeholder="Chest Width (in Inches)" type="text" className="footSize" id="chestWidth" name="bust" onChange={props.handleInputChange}></input>
+                <br/>
+                <input placeholder="Waist Width (in Inches)" type="text" className="footSize" id="waistWidth" name="waist" onChange={props.handleInputChange}></input>
+                <br/>
+                <input placeholder="Hip Width (in Inches)" type="text" className="footSize" id="hipWidth" name="hips" onChange={props.handleInputChange}></input>
 
         <br/>
     </div>

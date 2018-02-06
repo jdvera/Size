@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Sizes = sequelize.define("Sizes", {
+  var Shoes = sequelize.define("Shoes", {
     gender: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -14,14 +14,14 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    inchMin: {
+    shoeMin: {
       type: DataTypes.FLOAT,
       allowNull: false,
       validate: {
         len: [1]
       }
     },
-    inchMax: {
+    shoeMax: {
       type: DataTypes.FLOAT,
       allowNull: false,
       validate: {
@@ -30,13 +30,13 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Sizes.associate = function(models) {
-    Sizes.belongsTo(models.Logos, {
+  Shoes.associate = function(models) {
+    Shoes.belongsTo(models.Logos, {
       foreignKey: {
         allowNull: false
       }
     });
   };
 
-  return Sizes;
+  return Shoes;
 };

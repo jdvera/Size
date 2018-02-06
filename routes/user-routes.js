@@ -2,10 +2,12 @@ var passport = require('passport');
 var path = require("path");
 var db = require('../models');
 const router = require("express").Router();
+var Sequelize = require('sequelize');
 
 // Routes
 // =============================================================
 module.exports = function(app, passport) {
+  var Op = Sequelize.Op;
 
 // Authentication Routes ==================
 // ========================================
@@ -60,6 +62,55 @@ module.exports = function(app, passport) {
       res.send(false);
     }
   });
+
+  // get user saved data from profile
+  app.get("/api/profile", function(req, res) {
+    console.log("sizeRoutes.js getting profile data");
+    // if user logged in
+    if (req.user) {
+      let savedData;
+      console.log(req.user.dataValues.gender);
+
+      // retreive any saved shoe size
+      db.Shoes.findAll({
+            where: {
+              gender: req.user.dataValues.gender,
+              shoeMin: { [Op.lte]: req.user.dataValues.shoe },
+              shoeMax: { [Op.gte]: req.user.dataValues.shoe }
+            },
+              include: [db.Logos]
+          }).then(function(dbShoes) {
+            console.log("SHOOOOOOEEEES FOUND!!!!!"); 
+            // console.log(dbShoes); 
+            this.savedData = dbShoes;
+            console.log(this.savedData);
+        }).then(savedData => {
+          console.log("PASSING THIS ON")
+          console.log(this.savedData);
+          // retrieve any saved dress size
+          db.Dresses.findAll({
+                where: {
+                  bust: { [Op.lte]: req.user.dataValues.bust },
+                  waist: { [Op.gte]: req.user.dataValues.waist },
+                  hips: { [Op.gte]: req.user.dataValues.hips }
+                },
+                  include: [db.Logos]
+              }).then(function(dbDresses) {
+                console.log(this.savedData);
+                console.log(dbDresses===true);
+                if (dbDresses === true) { this.savedData = dbDresses; };
+                console.log(this.savedData);
+                res.json(this.savedData);
+            })
+        }) 
+        .catch(err => console.log(err))
+    } else {
+      console.log("user doesn't exist!");
+      console.log(req.user);
+      res.send(false);
+    } 
+  });
+
 
     app.get('/logout', function(req, res){
     req.logout();

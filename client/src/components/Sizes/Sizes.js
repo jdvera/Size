@@ -8,11 +8,12 @@ const Sizes = props =>
 	    <div className="itemsContainer">
 			<div className="jamesDiv">
 				{props.results.length ? props.results.map(item => 
+                    { item == null ? "" :
                     <div className="singleItem">
-                        <img src={item.Logo.imageUrl} />
+                        <img alt="Brand Logo" src={item.Logo.fileLocation} />
                         <p>{item.Logo.brand}</p>
                         <p>{item.size}</p>
-                    </div>)
+                    </div> })
 				: <div>😭<br/>No Results</div>}
 			</div>
 		</div>

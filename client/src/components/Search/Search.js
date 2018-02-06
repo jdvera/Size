@@ -24,20 +24,18 @@ const Search = props =>
             </select>
             <br/>
            
-            { props.type == "dresses" ? <DressSearch handleInputChange={this.handleInputChange} /> : <ShoeSearch handleInputChange={this.handleInputChange} />}
+            { props.type == "dresses"   ? <DressSearch handleInputChange={props.handleInputChange} /> 
+                                        : <ShoeSearch handleInputChange={props.handleInputChange} />
+            }
 
             <button className="searchButton" type="submit" onClick={props.handleSearch}>
                 Submit
             </button>
             <SignIn_SignOut />
-            {/*<p className="welcomeText">Welcome back, <a href="/login">Sign In</a>.</p>*/}
 
         </form>
     </div>
 
 export default Search;
-
-// { props.type == "shoes" ? <ShoeSearch /> : <ShoeSearch />}
-
 
 

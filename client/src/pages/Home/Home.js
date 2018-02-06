@@ -12,6 +12,9 @@ class Home extends Component {
         gender: "",
         brand: "",
         measurement: "",
+        bust: "",
+        waist: "",
+        hips: "",
         results: [],
         hasSearched: false,
         dataOnFile: false

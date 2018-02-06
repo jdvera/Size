@@ -2,10 +2,12 @@ var passport = require('passport');
 var path = require("path");
 var db = require('../models');
 const router = require("express").Router();
+var Sequelize = require('sequelize');
 
 // Routes
 // =============================================================
 module.exports = function(app, passport) {
+  var Op = Sequelize.Op;
 
 // Authentication Routes ==================
 // ========================================
@@ -60,6 +62,50 @@ module.exports = function(app, passport) {
       res.send(false);
     }
   });
+
+  // get user saved data from profile
+  app.get("/api/profile", function(req, res) {
+    console.log("sizeRoutes.js getting profile data");
+    // if user logged in
+    if (req.user) {
+      let savedData;
+      console.log(req.user.dataValues.gender);
+
+      // retreive any saved shoe size
+      db.Shoes.findAll({
+            where: {
+              gender: req.user.dataValues.gender,
+              shoeMin: { [Op.lte]: req.user.dataValues.measurement },
+              shoeMax: { [Op.gte]: req.user.dataValues.measurement }
+            },
+              include: [db.Logos]
+          }).then(function(dbShoes) {
+            // res.json(dbSizes); 
+            savedData = dbShoes;
+        }).then(savedData => {
+          // retrieve any saved dress size
+          db.Dresses.findAll({
+                where: {
+                  bust: { [Op.lte]: req.user.dataValues.bust },
+                  waist: { [Op.gte]: req.user.dataValues.waist },
+                  hips: { [Op.gte]: req.user.dataValues.hips }
+                },
+                  include: [db.Logos]
+              }).then(function(dbDresses) {
+                // console.log(dbDresses)
+                if (dbDresses) { savedData = dbDresses; };
+                console.log(savedData);
+                res.json(savedData);
+            })
+        }) 
+        .catch(err => console.log(err))
+    } else {
+      console.log("user doesn't exist!");
+      console.log(req.user);
+      res.send(false);
+    } 
+  });
+
 
     app.get('/logout', function(req, res){
     req.logout();

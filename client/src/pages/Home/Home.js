@@ -103,14 +103,15 @@ class Home extends Component {
     };
 
     render(){
-        const noSearch = !this.state.hasSearched;
-        const hasData = this.state.dataOnFile;
+        const noSearch = !this.state.hasSearched; //default = false;
+        const hasData = this.state.dataOnFile; // default = true;
         return (
             <div className={(noSearch) ? "" : "afterSearchConatiner"}>
                 <div className={(noSearch) ? "beforeSearch" : "afterSearch"}>
                     <Search type={this.state.type} handleSearch={this.handleSearch} handleInputChange={this.handleInputChange} />
-                </div>               
+                </div>                              
                 {(!noSearch ? <Sizes results={this.state.results}/> : "")}
+                {(hasData ? <Sizes results={this.state.results}/> : "")}
             </div>
         );
     }

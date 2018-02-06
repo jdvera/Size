@@ -86,7 +86,7 @@ module.exports = function(app, passport) {
             console.log(this.savedData);
         }).then(savedData => {
           console.log("PASSING THIS ON")
-          console.log(this.savedData);
+          // console.log(this.savedData);
           // retrieve any saved dress size
           db.Dresses.findAll({
                 where: {
@@ -96,10 +96,10 @@ module.exports = function(app, passport) {
                 },
                   include: [db.Logos]
               }).then(function(dbDresses) {
-                console.log(this.savedData);
-                console.log(dbDresses===true);
-                if (dbDresses === true) { this.savedData = dbDresses; };
-                console.log(this.savedData);
+                console.log(dbDresses.length > 0);
+                // console.log(this.savedData);
+                if (dbDresses.length > 0) { this.savedData = dbDresses; };
+                // console.log(this.savedData);
                 res.json(this.savedData);
             })
         }) 

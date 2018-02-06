@@ -1,5 +1,4 @@
 import React, { Component} from "react";
-import { Link } from "react-router-dom";
 import "./Home.css";
 import API from "../../utils/API";
 import Search from "../../components/Search";
@@ -54,7 +53,7 @@ class Home extends Component {
         event.preventDefault();
         // this.hasSearched = true;
         
-        if (this.state.type == "shoes") {
+        if (this.state.type === "shoes") {
             if (this.state.brand) {
                 API.getShoes({
                     brand: this.state.brand,
@@ -78,7 +77,7 @@ class Home extends Component {
                 }).catch(err => console.log(err));
             }
         }
-        else if (this.state.type == "dresses") {
+        else if (this.state.type === "dresses") {
             if (this.state.brand) {
                 API.getDresses({
                     brand: this.state.brand,
@@ -112,7 +111,7 @@ class Home extends Component {
             <div className={(noSearch) ? "" : "afterSearchConatiner"}>
                 <div className={(noSearch) ? "beforeSearch" : "afterSearch"}>
                     <Search type={this.state.type} handleSearch={this.handleSearch} handleInputChange={this.handleInputChange} />
-                </div>                              
+                </div> 
                 {(!noSearch ? <Sizes results={this.state.results}/> : "")}
                 {(hasData ? <Sizes results={this.state.results}/> : "")}
             </div>

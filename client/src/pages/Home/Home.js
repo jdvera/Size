@@ -60,7 +60,7 @@ class Home extends Component {
                     measurement: this.state.measurement
                 }).then(res => {
                     console.log(res.data);
-                    this.setState({ results: res.data });
+                    this.setState({ results: res.data, hasSearched: true });
                     console.log(this.state);
                 }).catch(err => console.log(err));
             }
@@ -70,7 +70,7 @@ class Home extends Component {
                     measurement: this.state.measurement
                 }).then(res => {
                     console.log(res.data);
-                    this.setState({ results: res.data });
+                    this.setState({ results: res.data, hasSearched: true });
                     console.log(this.state);
                 }).catch(err => console.log(err));
             }
@@ -84,7 +84,7 @@ class Home extends Component {
                     hips: this.state.hips
                 }).then(res => {
                     console.log(res.data);
-                    this.setState({ results: res.data });
+                    this.setState({ results: res.data, hasSearched: true });
                     console.log(this.state);
                 }).catch(err => console.log(err));
             }
@@ -95,7 +95,7 @@ class Home extends Component {
                     hips: this.state.hips
                 }).then(res => {
                     console.log(res.data);
-                    this.setState({ results: res.data });
+                    this.setState({ results: res.data, hasSearched: true });
                     console.log(this.state);
                 }).catch(err => console.log(err));
             }

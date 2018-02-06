@@ -61,7 +61,7 @@ class Home extends Component {
                     shoe: this.state.shoe
                 }).then(res => {
                     console.log(res.data);
-                    this.setState({ results: res.data, hasSearched: true, dataOnFile: false });
+                    this.setState({ results: [res.data], hasSearched: true, dataOnFile: false });
                     console.log(this.state);
                 }).catch(err => console.log(err));
             }
@@ -86,7 +86,7 @@ class Home extends Component {
                     hips: this.state.hips
                 }).then(res => {
                     console.log(res.data);
-                    this.setState({ results: res.data, hasSearched: true, dataOnFile: false });
+                    this.setState({ results: [res.data], hasSearched: true, dataOnFile: false });
                     console.log(this.state);
                 }).catch(err => console.log(err));
             }

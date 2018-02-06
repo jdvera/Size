@@ -22,8 +22,8 @@ const DressSearch = props =>
                 <input placeholder="Waist Width (in Inches)" type="text" className="footSize" id="waistWidth" name="waist" onChange={props.handleInputChange}></input>
                 <br/>
                 <input placeholder="Hip Width (in Inches)" type="text" className="footSize" id="hipWidth" name="hips" onChange={props.handleInputChange}></input>
+                <br/>
 
-        <br/>
     </div>
 
 export default DressSearch;

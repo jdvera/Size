@@ -30,14 +30,10 @@ const Search = props =>
                 Submit
             </button>
             <SignIn_SignOut />
-            {/*<p className="welcomeText">Welcome back, <a href="/login">Sign In</a>.</p>*/}
 
         </form>
     </div>
 
 export default Search;
-
-// { props.type == "shoes" ? <ShoeSearch /> : <ShoeSearch />}
-
 
 

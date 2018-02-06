@@ -27,7 +27,7 @@ const ShoeSearch = props =>
         <input className = "radio" type="radio" name="gender" value="female" onChange={props.handleInputChange}/> Female
         <br/>
 
-        <input placeholder="Foot Length (in Inches)" type="text" className="footSize" id="footlength" name="measurement" onChange={props.handleInputChange}></input>
+        <input placeholder="Foot Length (in Inches)" type="text" className="footSize" id="footlength" name="shoe" onChange={props.handleInputChange}></input>
         <br/>
 
        

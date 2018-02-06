@@ -75,14 +75,18 @@ module.exports = function(app, passport) {
       db.Shoes.findAll({
             where: {
               gender: req.user.dataValues.gender,
-              shoeMin: { [Op.lte]: req.user.dataValues.measurement },
-              shoeMax: { [Op.gte]: req.user.dataValues.measurement }
+              shoeMin: { [Op.lte]: req.user.dataValues.shoe },
+              shoeMax: { [Op.gte]: req.user.dataValues.shoe }
             },
               include: [db.Logos]
           }).then(function(dbShoes) {
-            // res.json(dbSizes); 
-            savedData = dbShoes;
+            console.log("SHOOOOOOEEEES FOUND!!!!!"); 
+            // console.log(dbShoes); 
+            this.savedData = dbShoes;
+            console.log(this.savedData);
         }).then(savedData => {
+          console.log("PASSING THIS ON")
+          console.log(this.savedData);
           // retrieve any saved dress size
           db.Dresses.findAll({
                 where: {
@@ -92,10 +96,11 @@ module.exports = function(app, passport) {
                 },
                   include: [db.Logos]
               }).then(function(dbDresses) {
-                // console.log(dbDresses)
-                if (dbDresses) { savedData = dbDresses; };
-                console.log(savedData);
-                res.json(savedData);
+                console.log(this.savedData);
+                console.log(dbDresses===true);
+                if (dbDresses === true) { this.savedData = dbDresses; };
+                console.log(this.savedData);
+                res.json(this.savedData);
             })
         }) 
         .catch(err => console.log(err))

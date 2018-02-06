@@ -11,7 +11,7 @@ class Home extends Component {
         type: "",
         gender: "",
         brand: "",
-        measurement: "",
+        shoe: "",
         bust: "",
         waist: "",
         hips: "",
@@ -43,21 +43,23 @@ class Home extends Component {
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
-            [name]: value
+            [name]: value,
+            hasSearched: false,
+            dataOnFile: false
         });
         console.log(this.state);
     };
 
     handleSearch = event => {
         event.preventDefault();
-        this.hasSearched = true;
+        // this.hasSearched = true;
         
         if (this.state.type == "shoes") {
             if (this.state.brand) {
                 API.getShoes({
                     brand: this.state.brand,
                     gender: this.state.gender,
-                    measurement: this.state.measurement
+                    shoe: this.state.shoe
                 }).then(res => {
                     console.log(res.data);
                     this.setState({ results: res.data, hasSearched: true, dataOnFile: false });
@@ -65,9 +67,10 @@ class Home extends Component {
                 }).catch(err => console.log(err));
             }
             else {
+                console.log("BOOGIE: " + this.state.shoe)
                 API.getShoesWithoutBrand({
                     gender: this.state.gender,
-                    measurement: this.state.measurement
+                    shoe: this.state.shoe
                 }).then(res => {
                     console.log(res.data);
                     this.setState({ results: res.data, hasSearched: true, dataOnFile: false });

@@ -40,13 +40,13 @@ export default {
 	getShoes: function(userData) {
 		console.log("WithBrand getting shoes data for:");
 		console.log(userData);
-		const apiEndpoint = "/api/shoes/" + userData.gender + "/" + userData.measurement + "/" + userData.brand;
+		const apiEndpoint = "/api/shoes/" + userData.gender + "/" + userData.shoe + "/" + userData.brand;
 		return axios.get(apiEndpoint);
 	},
 	getShoesWithoutBrand: function(userData) {
 		console.log("NoBrand getting shoes data for:");
 		console.log(userData);
-		const apiEndpoint = "/api/shoes/" + userData.gender + "/" + userData.measurement;
+		const apiEndpoint = "/api/shoes/" + userData.gender + "/" + userData.shoe;
 		return axios.get(apiEndpoint);
 	},
 

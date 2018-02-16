@@ -57,6 +57,7 @@ const User = db.Users;
 			     };
 
 			 }).catch(function(err) {
+			 	console.log(err);
 					return done(null, false, {
 						message: 'Something went wrong with your registration.'
 					});

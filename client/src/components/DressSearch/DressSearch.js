@@ -1,6 +1,4 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import SignIn_SignOut from "../SignIn_SignOut";
+import React from "react";
 
 const DressSearch = props =>
 	

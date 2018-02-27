@@ -123,8 +123,8 @@ class Home extends Component {
         const noSearch = !this.state.hasSearched; //default = false;
         const hasData = this.state.dataOnFile; // default = true;
         return (
-            <div className={(noSearch) ? "" : "afterSearchConatiner"}>
-                <div className={(noSearch) ? "beforeSearch" : "afterSearch"}>
+            <div className="page-wrapper">
+                <div className={(noSearch) ? "" : "afterSearch"}>
                     <Search type={this.state.type} handleSearch={this.handleSearch} handleInputChange={this.handleInputChange} />
                 </div> 
                 <div className="h3">{this.state.errorMessage}</div>

@@ -99,6 +99,7 @@ WITH LOVE, EVERYONE*/
 	height: 65px;
 }
 
-.noResults {
-
+.no-results {
+	margin: 30px auto;
+	float: none;
 }

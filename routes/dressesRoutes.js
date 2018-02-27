@@ -54,7 +54,9 @@ module.exports = function(app) {
 		    include: [db.Logos]
 		}).then(function(dbDresses) {
 			if(userArr.length == 7){
-				console.log(userArr);
+				if(!userArr[0]) {
+					userArr = [];
+				}
 				res.json(userArr);
 			}
 			else {

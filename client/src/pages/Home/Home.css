@@ -10,8 +10,9 @@
     
 }
 
-.afterSearchContainer {
-    width: 100%;
+.page-wrapper {
+    margin: 0px auto;
+    width: 95%;
 }
 
 .homebody {    

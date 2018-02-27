@@ -24,7 +24,9 @@ const Search = props =>
             </select>
             <br/>
            
-            { props.type === "dresses" ? <DressSearch handleInputChange={props.handleInputChange} /> : <ShoeSearch handleInputChange={props.handleInputChange} />}
+            { props.type === "dresses" ? 
+               <DressSearch handleInputChange={props.handleInputChange} />
+             : <ShoeSearch handleInputChange={props.handleInputChange} />}
 
             <button className="searchButton" type="submit" onClick={props.handleSearch}>
                 Submit

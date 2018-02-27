@@ -14,7 +14,7 @@ const Sizes = props =>
 						<p>{item.size}</p>
 					</div> )}
 				</div>
-			: <div className="singleItem">
+			: <div className="singleItem no-results">
 				<img alt="Brand Logo" src="logos/cry.png" />
 				<p>No Results</p>
 				<p></p>

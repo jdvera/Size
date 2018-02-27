@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Search.css";
 import { Link } from "react-router-dom";
-import SignIn_SignOut from "../SignIn_SignOut";
+import SignInSignOut from "../SignIn_SignOut";
 import ShoeSearch from "../ShoeSearch";
 import DressSearch from "../DressSearch";
 
@@ -29,7 +29,7 @@ const Search = props =>
             <button className="searchButton" type="submit" onClick={props.handleSearch}>
                 Submit
             </button>
-            <SignIn_SignOut />
+            <SignInSignOut />
 
         </form>
     </div>

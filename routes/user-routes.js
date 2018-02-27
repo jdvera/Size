@@ -1,7 +1,7 @@
 var passport = require('passport');
 var path = require("path");
 var db = require('../models');
-const router = require("express").Router();
+var router = require("express").Router();
 var Sequelize = require('sequelize');
 
 // Routes
@@ -68,42 +68,32 @@ module.exports = function(app, passport) {
     console.log("sizeRoutes.js getting profile data");
     // if user logged in
     if (req.user) {
-      let savedData;
+      var savedData;
       console.log(req.user.dataValues.gender);
 
       // retreive any saved shoe size
       db.Shoes.findAll({
-            where: {
-              gender: req.user.dataValues.gender,
-              shoeMin: { [Op.lte]: req.user.dataValues.shoe },
-              shoeMax: { [Op.gte]: req.user.dataValues.shoe }
-            },
-              include: [db.Logos]
-          }).then(function(dbShoes) {
-            console.log("SHOOOOOOEEEES FOUND!!!!!"); 
-            // console.log(dbShoes); 
-            this.savedData = dbShoes;
-            console.log(this.savedData);
-        }).then(savedData => {
-          console.log("PASSING THIS ON")
-          console.log(this.savedData);
-          // retrieve any saved dress size
-          db.Dresses.findAll({
-                where: {
-                  bust: { [Op.lte]: req.user.dataValues.bust },
-                  waist: { [Op.gte]: req.user.dataValues.waist },
-                  hips: { [Op.gte]: req.user.dataValues.hips }
-                },
-                  include: [db.Logos]
-              }).then(function(dbDresses) {
-                console.log(this.savedData);
-                console.log(dbDresses===true);
-                if (dbDresses === true) { this.savedData = dbDresses; };
-                console.log(this.savedData);
-                res.json(this.savedData);
-            })
-        }) 
-        .catch(err => console.log(err))
+        where: {
+          gender: req.user.dataValues.gender,
+          shoeMin: { [Op.lte]: req.user.dataValues.shoe },
+          shoeMax: { [Op.gte]: req.user.dataValues.shoe }
+        },
+        include: [db.Logos]
+      }).then(function(dbShoes) {
+        console.log("SHOOOOOOEEEES FOUND!!!!!"); 
+        // console.log(dbShoes); 
+        savedData = dbShoes;
+        console.log(savedData);
+      }).then(function() {
+        console.log("PASSING THIS ON")
+        // retrieve any saved dress size
+        var userArr = [];
+        var i = 14;
+        dressSearch(savedData, res, i, req.user.dataValues.bust, req.user.dataValues.waist, req.user.dataValues.hips, userArr);
+      }) 
+      .catch(function(err) {
+        console.log(err)
+      });
     } else {
       console.log("user doesn't exist!");
       console.log(req.user);
@@ -123,6 +113,30 @@ module.exports = function(app, passport) {
       return next();
     }
     res.redirect('/signup');
+  }
+
+  var dressSearch = function(savedData, res, i, bust, waist, hips, userArr) {
+    db.Dresses.findOne({
+      where: {
+        bust: { [Op.gte]: bust },
+        waist: { [Op.gte]: waist },
+        hips: { [Op.gte]: hips },
+        LogoId: i
+      },
+        include: [db.Logos]
+    }).then(function(dbDresses) {
+      if(userArr.length == 7){
+        if (userArr[0]) {
+          savedData = userArr;
+        }
+        res.json(savedData);
+      }
+      else {
+        userArr.push(dbDresses);
+        i++;
+        dressSearch(savedData, res, i, bust, waist, hips, userArr)
+      }
+    });
   }
 
 };

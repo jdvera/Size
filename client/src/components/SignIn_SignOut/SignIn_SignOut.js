@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import "./SignIn_SignOut.css";
-import { Link } from "react-router-dom";
 
-class SignIn_SignOut extends Component {
+class SignInSignOut extends Component {
 	state = {
 		userExists: false
 	};
@@ -38,4 +37,4 @@ class SignIn_SignOut extends Component {
 	}
 }
 
-export default SignIn_SignOut;
+export default SignInSignOut;

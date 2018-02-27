@@ -27,7 +27,7 @@ module.exports = function(app) {
 		var userObj = checkUser(req, req.params.bust, req.params.waist, req.params.hips);
 		var userArr = [];
 		var i = 14;
-		dressSearch(req, res, i, req.params.bust, req.params.waist, req.params.hips, userArr);
+		dressSearch(res, i, req.params.bust, req.params.waist, req.params.hips, userArr);
 	});
 
 	var checkUser = function(req, bust, waist, hips) {
@@ -43,7 +43,7 @@ module.exports = function(app) {
 		}
 	}
 
-	var dressSearch = function(req, res, i, bust, waist, hips, userArr) {
+	var dressSearch = function(res, i, bust, waist, hips, userArr) {
 		db.Dresses.findOne({
 			where: {
 				bust: { [Op.gte]: bust },
@@ -54,13 +54,16 @@ module.exports = function(app) {
 		    include: [db.Logos]
 		}).then(function(dbDresses) {
 			if(userArr.length == 7){
+				console.log(userArr);
 				res.json(userArr);
 			}
 			else {
 				userArr.push(dbDresses);
 				i++;
-				dressSearch(req, res, i, bust, waist, hips, userArr)
+				dressSearch(res, i, bust, waist, hips, userArr)
 			}
 		});
 	}
 };   
+
+

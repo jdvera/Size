@@ -1,7 +1,7 @@
 {
   "name": "Size",
   "version": "1.0.0",
-  "description": "Using API’s, User Entered information, and a self created database to determine clothing sizes based on real measurements across various stores.",
+  "description": "We use API’s, User Entered information, and a self created database to determine clothing sizes based on real measurements across various stores.",
   "main": "server.js",
   "scripts": {
     "server": "node server.js",
@@ -30,6 +30,7 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "react": "^16.2.0",
+    "react-media": "^1.8.0",
     "responsive": "^1.0.1",
     "sequelize": "^4.32.2"
   }

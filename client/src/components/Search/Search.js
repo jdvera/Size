@@ -13,7 +13,7 @@ const Search = props =>
                 <h1 className="h1">Size</h1>
             </Link>
 
-            <div className="logo">
+            <div className={ props.showLogo ? "logo" : "no-logo"}>
                 <img className = "hanger" src='hanger4.png' alt={"hanger"} />
             </div>
 

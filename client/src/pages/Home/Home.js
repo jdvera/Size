@@ -17,7 +17,8 @@ class Home extends Component {
         results: [],
         hasSearched: false,
         dataOnFile: false,
-        errorMessage: ""
+        errorMessage: "",
+        showLogo: true
     };
 
     // get any saved user data
@@ -46,77 +47,87 @@ class Home extends Component {
             [name]: value,
             hasSearched: false,
             dataOnFile: false
-        });
-        console.log(this.state);
+        }, this.checkLogo);
+        
     };
+
+    checkLogo = () => {
+        if(this.state.type == "dresses") {
+            this.setState({
+                showLogo: false
+            });
+        }
+    }
 
     handleSearch = event => {
         event.preventDefault();
         // this.hasSearched = true;
-        
-        if (this.state.type === "shoes") {
-
-            // field validation
-            if (!this.state.shoe || !this.state.gender) {
-                this.setState({ errorMessage: "Please input gender & foot size."});
-            } else {
-
-                if (this.state.brand) {
-                    API.getShoes({
-                        brand: this.state.brand,
-                        gender: this.state.gender,
-                        shoe: this.state.shoe
-                    }).then(res => {
-                        console.log(res.data);
-                        this.setState({ results: [res.data], hasSearched: true, dataOnFile: false });
-                        console.log(this.state);
-                    }).catch(err => console.log(err));
+        this.setState({
+            hasSearched: true,
+            showLogo: false
+        }, () => {
+            if (this.state.type === "shoes") {
+                // field validation
+                if (!this.state.shoe || !this.state.gender) {
+                    this.setState({ errorMessage: "Please input gender & foot size."});
                 }
                 else {
-                    console.log("BOOGIE: " + this.state.shoe)
-                    API.getShoesWithoutBrand({
-                        gender: this.state.gender,
-                        shoe: this.state.shoe
-                    }).then(res => {
-                        console.log(res.data);
-                        this.setState({ results: res.data, hasSearched: true, dataOnFile: false });
-                        console.log(this.state);
-                    }).catch(err => console.log(err));
+                    if (this.state.brand) {
+                        API.getShoes({
+                            brand: this.state.brand,
+                            gender: this.state.gender,
+                            shoe: this.state.shoe
+                        }).then(res => {
+                            console.log(res.data);
+                            this.setState({ results: [res.data], hasSearched: true, dataOnFile: false });
+                            console.log(this.state);
+                        }).catch(err => console.log(err));
+                    }
+                    else {
+                        console.log("BOOGIE: " + this.state.shoe)
+                        API.getShoesWithoutBrand({
+                            gender: this.state.gender,
+                            shoe: this.state.shoe
+                        }).then(res => {
+                            console.log(res.data);
+                            this.setState({ results: res.data, hasSearched: true, dataOnFile: false });
+                            console.log(this.state);
+                        }).catch(err => console.log(err));
+                    }
                 }
             }
-        }
-        else if (this.state.type === "dresses") {
-
-            // field validation
-            if (!this.state.bust || !this.state.waist || !this.state.hips) {
-                this.setState({ errorMessage: "Please input all measurements."});
-            } else {
-
-                if (this.state.brand) {
-                    API.getDresses({
-                        brand: this.state.brand,
-                        bust: this.state.bust,
-                        waist: this.state.waist,
-                        hips: this.state.hips
-                    }).then(res => {
-                        console.log(res.data);
-                        this.setState({ results: [res.data], hasSearched: true, dataOnFile: false });
-                        console.log(this.state);
-                    }).catch(err => console.log(err));
+            else if (this.state.type === "dresses") {
+                // field validation
+                if (!this.state.bust || !this.state.waist || !this.state.hips) {
+                    this.setState({ errorMessage: "Please input all measurements."});
                 }
                 else {
-                    API.getDressesWithoutBrand({
-                        bust: this.state.bust,
-                        waist: this.state.waist,
-                        hips: this.state.hips
-                    }).then(res => {
-                        console.log(res.data);
-                        this.setState({ results: res.data, hasSearched: true, dataOnFile: false });
-                        console.log(this.state);
-                    }).catch(err => console.log(err));
+                    if (this.state.brand) {
+                        API.getDresses({
+                            brand: this.state.brand,
+                            bust: this.state.bust,
+                            waist: this.state.waist,
+                            hips: this.state.hips
+                        }).then(res => {
+                            console.log(res.data);
+                            this.setState({ results: [res.data], hasSearched: true, dataOnFile: false });
+                            console.log(this.state);
+                        }).catch(err => console.log(err));
+                    }
+                    else {
+                        API.getDressesWithoutBrand({
+                            bust: this.state.bust,
+                            waist: this.state.waist,
+                            hips: this.state.hips
+                        }).then(res => {
+                            console.log(res.data);
+                            this.setState({ results: res.data, hasSearched: true, dataOnFile: false });
+                            console.log(this.state);
+                        }).catch(err => console.log(err));
+                    }
                 }
             }
-        }
+        });
     };
 
     render(){
@@ -125,7 +136,7 @@ class Home extends Component {
         return (
             <div className="page-wrapper">
                 <div className={(noSearch) ? "" : "afterSearch"}>
-                    <Search type={this.state.type} handleSearch={this.handleSearch} handleInputChange={this.handleInputChange} />
+                    <Search type={this.state.type} showLogo={this.state.showLogo} handleSearch={this.handleSearch} handleInputChange={this.handleInputChange} />
                 </div> 
                 <div className="h3">{this.state.errorMessage}</div>
                 {(!noSearch ? <Sizes results={this.state.results}/> : "")}

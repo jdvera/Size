@@ -63,3 +63,7 @@
     width: 200px;
     margin: auto;
 }
+
+.no-logo {
+    display: none;
+}

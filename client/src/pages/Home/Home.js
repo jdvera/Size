@@ -48,7 +48,6 @@ class Home extends Component {
             hasSearched: false,
             dataOnFile: false
         }, this.checkLogo);
-        
     };
 
     checkLogo = () => {

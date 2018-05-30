@@ -4,13 +4,13 @@ const bodyParser = require('body-parser');
 const path = require("path");
 
 // Sets up the Express App  =============================
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3010;
 const app = express();
 
 // **Uncomment once we begin passport work**
 // Sets up Passport =====================================
-var passport   = require('passport');
-var session    = require('express-session');
+var passport = require('passport');
+var session = require('express-session');
 var flash = require('connect-flash');
 
 // Requiring our models for syncing

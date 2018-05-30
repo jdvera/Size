@@ -52,7 +52,7 @@ class SignUp extends Component {
     	)
        .then(res => this.signupResponse(res))
        .catch(err => console.log(err))
-	};		
+	};
 
 	// upon receiving response from Signup post request
 	signupResponse = res => {

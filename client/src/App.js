@@ -9,16 +9,14 @@ import NoMatch from "./pages/NoMatch";
 class App extends Component {
   render() {
     return (
-    	<Router>
-		    
-		    	<Switch>
-		    		<Route exact path="/" component={Home} />
-		    		<Route exact path="/login" component={LogIn} />
-		        	<Route exact path="/signup" component={SignUp} />
-		        	<Route component={NoMatch} />
-		        </Switch>
-		    
-		</Router>
+			<Router>
+				<Switch>
+					<Route exact path="/" component={Home} />
+					<Route exact path="/login" component={LogIn} />
+					<Route exact path="/signup" component={SignUp} />
+					<Route component={NoMatch} />
+				</Switch>
+			</Router>
     );
   }
 }

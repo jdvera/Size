@@ -7,7 +7,6 @@ import DressSearch from "../DressSearch";
 
 const Search = props =>
 	<div className="search">
-    
         <form className="form">
             <Link to={"/"}style={{ textDecoration: 'none' }}>
                 <h1 className="h1">Size</h1>
@@ -26,13 +25,12 @@ const Search = props =>
            
             { props.type === "dresses" ? 
                <DressSearch handleInputChange={props.handleInputChange} />
-             : <ShoeSearch handleInputChange={props.handleInputChange} />}
+             : <ShoeSearch handleInputChange={props.handleInputChange} /> }
 
             <button className="searchButton" type="submit" onClick={props.handleSearch}>
                 Submit
             </button>
             <SignInSignOut />
-
         </form>
     </div>
 

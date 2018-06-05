@@ -1,8 +1,7 @@
 import React from "react";
 
 const ShoeSearch = props =>
-	<div>
-           
+	<div>  
         <select className="selection" id="brand" name="brand" onChange={props.handleInputChange}>
             <option value="">  Brand (optional)</option>
             <option value="13"> BCBG </option>
@@ -27,8 +26,6 @@ const ShoeSearch = props =>
 
         <input placeholder="Foot Length (in Inches)" type="text" className="footSize" id="footlength" name="shoe" onChange={props.handleInputChange}></input>
         <br/>
-
-       
     </div>
 
 export default ShoeSearch;

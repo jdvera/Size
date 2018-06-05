@@ -6,39 +6,39 @@ import { Link } from "react-router-dom";
 class LogIn extends Component {
 
 	state = {
-	  email: "",
-	  password: "",
-	  error: ""
+		email: "",
+		password: "",
+		error: ""
 	};
 
 	handleInputChange = event => {
-	  const { name, value } = event.target;
-	  this.setState({
-	    [name]: value
-	  });
+		const { name, value } = event.target;
+		this.setState({
+			[name]: value
+		});
 	};
 
 	handleLogin = event => {
-	  	event.preventDefault();
-	  	if (this.state.email && this.state.password) {
-		  	console.log("Login.js says: "+ this.state.email + " " + this.state.password);
-		    API.Login(
-		    		{
-	    		  		email: this.state.email,
-	    		  		password: this.state.password
-		    		}
-		    	)
-		      .then(res => this.loginResponse(res))
-		      .catch(err => console.log(err))
+		event.preventDefault();
+		if (this.state.email && this.state.password) {
+			console.log("Login.js says: " + this.state.email + " " + this.state.password);
+			API.Login(
+				{
+					email: this.state.email,
+					password: this.state.password
+				}
+			)
+				.then(res => this.loginResponse(res))
+				.catch(err => console.log(err))
 		};
 	};
 
 	loginResponse = res => {
 		// if login is successful
-		if (res.data === "Success") { 
+		if (res.data === "Success") {
 			// redirect to home page
 			this.props.history.push('/')
-		} 
+		}
 		// if login is not successful
 		else {
 			// display reason message
@@ -57,44 +57,44 @@ class LogIn extends Component {
 	};
 
 	render() {
-	    return (
-			<div className="logInBody">   
-			    <div className="logInContainer">
-					<Link to={"/"}style={{ textDecoration: 'none' }}>
-                <h1 className="h1">Size</h1>
-                </Link>
-								<img className = "hanger" src='hanger4.png' alt={"hanger"} />
-			        <form>
-			        	<input 
-			        		value={this.state.email}
-			        		onChange={this.handleInputChange}
-			        		name="email" 
-			        		type="email" 
-			        		placeholder="Email" />
-			        	<p></p>
-			        	<input 
-			        		value={this.state.password}
-			        		onChange={this.handleInputChange}
-			        		name="password" 
-			        		type="password" 
-			        		placeholder="Password" />
-			        	<p></p>
-			        	<button 
-				        	disabled={!(this.state.password && this.state.email)}
-				        	onClick={this.handleLogin}
-			        		type="submit" 
-			        		className="logInButton">
-			        			Log In
+		return (
+			<div className="logInBody">
+				<div className="logInContainer">
+					<Link to={"/"} style={{ textDecoration: 'none' }}>
+						<h1 className="h1">Size</h1>
+					</Link>
+					<img className="hanger" src='hanger4.png' alt={"hanger"} />
+					<form>
+						<input
+							value={this.state.email}
+							onChange={this.handleInputChange}
+							name="email"
+							type="email"
+							placeholder="Email" />
+						<p></p>
+						<input
+							value={this.state.password}
+							onChange={this.handleInputChange}
+							name="password"
+							type="password"
+							placeholder="Password" />
+						<p></p>
+						<button
+							disabled={!(this.state.password && this.state.email)}
+							onClick={this.handleLogin}
+							type="submit"
+							className="logInButton">
+							Log In
 	        			</button>
-			        
-			        <div className="errorMessage">{this.state.error}</div>
-			        <div className="createAccount">
-			        	<p>Don't have an account yet?</p>
-			        	<a href="/signup">Sign Up!</a>
-			        </div>
+
+						<div className="errorMessage">{this.state.error}</div>
+						<div className="createAccount">
+							<p>Don't have an account yet?</p>
+							<a href="/signup">Sign Up!</a>
+						</div>
 					</form>
-			    </div>
-	    	</div>
+				</div>
+			</div>
 		)
 	}
 }

@@ -79,8 +79,7 @@ class SignUp extends Component {
 			<div className="signUpBody">
 		    	<div className="signUpContainer">
 		    		<h1>Size</h1>
-					<Link to={"/"}style={{ textDecoration: 'none' }}>
-                </Link>           
+					<Link to={"/"}style={{ textDecoration: 'none' }}></Link>           
 			        <form action="signupform" method="post">
 			        	<input 
 			        		value={this.state.email}
@@ -103,17 +102,15 @@ class SignUp extends Component {
 			        		type="password" 
 			        		placeholder="Verify password" />
 			        	<p></p>
-			        	<button 
-				        	disabled={!(this.state.password && this.state.email && this.state.verifyPassword)}
-				        	onClick={this.handleSignUp}
-				        	type="submit" 
-				        	className="signUpButton">Sign Up</button>
+			        	<button disabled={!(this.state.password && this.state.email && this.state.verifyPassword)} onClick={this.handleSignUp} type="submit" className="signUpButton">
+							Sign Up
+						</button>
 			        
-			        <div className="errorMessage">{this.state.error}</div>
-							<a href="/">
-                        Back to Search
-                         </a>
-						 </form>
+						<div className="errorMessage">{this.state.error}</div>
+						<a href="/">
+							Back to Search
+						</a>
+					</form>
 			    </div>
 		    </div>
 		)

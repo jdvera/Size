@@ -58,4 +58,5 @@ db.sequelize.sync().then(function() {
 	app.listen(PORT, function() {
 	  console.log(`🌎 ==> Server now on port ${PORT}!`);
 	});
+	db.Users.create({ email: "test@test.com", password: "test" }).then(function(dbResponse) {console.log("test user added");});
 });

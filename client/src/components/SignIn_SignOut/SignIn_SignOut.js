@@ -12,7 +12,7 @@ class SignInSignOut extends Component {
         // call the AuthStatus function to see if a user is logged in
        console.log("running authStatus");
        API.AuthStatus().then(res => {
-        if (res.data == true) {
+        if (res.data) {
 			this.setState({userExists: true});
 		} else {
 			this.setState({userExists: false});
@@ -30,7 +30,7 @@ class SignInSignOut extends Component {
 	render() {
 		return (
 			<div className="logInStatus">
-				{this.state.userExists == false ? (<div className="noUser">Welcome back, <a href="/login">Sign In</a></div>)
+				{!this.state.userExists ? (<div className="noUser">Welcome back, <a href="/login">Sign In</a></div>)
 				: (<div className="yesUser"><a href="/" onClick={this.handleSignOut}>Sign Out</a></div>)}
 			</div>
 		)

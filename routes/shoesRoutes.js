@@ -33,7 +33,6 @@ module.exports = function(app) {
 			},
 		    include: [db.Logos]
 		}).then(function(dbShoes) {
-			console.log("dbShoes is " + dbShoes);
 			res.json(dbShoes);
 		}).catch(err => console.log(err));
 	});

@@ -18,7 +18,8 @@ class Home extends Component {
         hasSearched: false,
         dataOnFile: false,
         errorMessage: "",
-        showLogo: true
+        showLogo: true,
+        showLoading: false
     };
 
     // get any saved user data
@@ -51,7 +52,7 @@ class Home extends Component {
     };
 
     checkLogo = () => {
-        if(this.state.type == "dresses") {
+        if(this.state.type === "dresses") {
             this.setState({
                 showLogo: false
             });
@@ -60,11 +61,12 @@ class Home extends Component {
 
     handleSearch = event => {
         event.preventDefault();
-        // this.hasSearched = true;
         this.setState({
             hasSearched: true,
-            showLogo: false
+            showLogo: false,
+            showLoading: true
         }, () => {
+            console.log("--- handleSearch, first setState ---");
             if (this.state.type === "shoes") {
                 // field validation
                 if (!this.state.shoe || !this.state.gender) {
@@ -78,19 +80,19 @@ class Home extends Component {
                             shoe: this.state.shoe
                         }).then(res => {
                             console.log(res.data);
-                            this.setState({ results: [res.data], hasSearched: true, dataOnFile: false });
+                            this.setState({ results: [res.data], hasSearched: true, dataOnFile: false, showLoading: false });
                             console.log(this.state);
                         }).catch(err => console.log(err));
                     }
                     else {
-                        console.log("BOOGIE: " + this.state.shoe)
+                        console.log("--- No Brand, making API call ---");
                         API.getShoesWithoutBrand({
                             gender: this.state.gender,
                             shoe: this.state.shoe
                         }).then(res => {
+                            console.log("--- API response below ---")
                             console.log(res.data);
-                            this.setState({ results: res.data, hasSearched: true, dataOnFile: false });
-                            console.log(this.state);
+                            this.setState({ results: res.data, hasSearched: true, dataOnFile: false, showLoading: false }, () => console.log("--- handleSearch, second setState ---", this.state));
                         }).catch(err => console.log(err));
                     }
                 }
@@ -109,7 +111,7 @@ class Home extends Component {
                             hips: this.state.hips
                         }).then(res => {
                             console.log(res.data);
-                            this.setState({ results: [res.data], hasSearched: true, dataOnFile: false });
+                            this.setState({ results: [res.data], hasSearched: true, dataOnFile: false, showLoading: false });
                             console.log(this.state);
                         }).catch(err => console.log(err));
                     }
@@ -120,7 +122,7 @@ class Home extends Component {
                             hips: this.state.hips
                         }).then(res => {
                             console.log(res.data);
-                            this.setState({ results: res.data, hasSearched: true, dataOnFile: false });
+                            this.setState({ results: res.data, hasSearched: true, dataOnFile: false, showLoading: false });
                             console.log(this.state);
                         }).catch(err => console.log(err));
                     }
@@ -130,16 +132,16 @@ class Home extends Component {
     };
 
     render(){
-        const noSearch = !this.state.hasSearched; //default = false;
-        const hasData = this.state.dataOnFile; // default = true;
+        const noSearch = !this.state.hasSearched;
+        const hasData = this.state.dataOnFile;
         return (
             <div className="page-wrapper">
                 <div className={(noSearch) ? "" : "afterSearch"}>
                     <Search type={this.state.type} showLogo={this.state.showLogo} handleSearch={this.handleSearch} handleInputChange={this.handleInputChange} />
                 </div> 
                 <div className="h3">{this.state.errorMessage}</div>
-                {(!noSearch ? <Sizes results={this.state.results}/> : "")}
-                {(hasData ? <Sizes results={this.state.results}/> : "")}
+                {(!noSearch ? <Sizes results={this.state.results} showLoading={this.state.showLoading}/> : "")}
+                {(hasData ? <Sizes results={this.state.results} showLoading={this.state.showLoading}/> : "")}
             </div>
         );
     }
